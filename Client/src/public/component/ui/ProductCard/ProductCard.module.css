@@ -1,0 +1,199 @@
+.productWrapper {
+  display: grid;
+  justify-content: center;
+}
+
+.productCard {
+  width: 380px;
+  min-height: 620px;
+
+  background: #ffffff;
+
+  border: 1px solid #d8d2c8;
+  border-radius: 15px;
+
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.isPremium {
+  background-color: #f1e6c8;
+}
+
+.productLabel {
+  font-size: 12px;
+  letter-spacing: 4px;
+  font-weight: 600;
+
+  color: var(--dark-brown);
+
+  margin-bottom: 10px;
+}
+
+.productTitle {
+  font-size: 28px;
+  color: var(--primary-color);
+
+  font-family: serif;
+  font-weight: 500;
+
+  margin-bottom: 8px;
+}
+
+.productSubtitle {
+  font-size: 13px;
+  color: #56627d;
+
+  margin-bottom: 12px;
+}
+
+.productPrice {
+  font-size: 30px;
+  font-weight: 400;
+
+  color: var(--primary-color);
+
+  font-family: serif;
+
+  margin-bottom: 18px;
+}
+
+.gstText {
+  font-size: 16px;
+}
+
+.divider {
+  border-top: 1px solid #d8d2c8;
+  margin-bottom: 28px;
+}
+
+/* FEATURES */
+
+.featureBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  align-items: flex-start;
+}
+
+.featureContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+}
+
+.featureIcon {
+  color: var(--primary-color);
+}
+
+.featureTitle {
+  font-size: 14px;
+  font-weight: 600;
+
+  font-family: "Inter", sans-serif;
+
+  color: #10173a;
+
+  margin-bottom: 5px;
+}
+
+.featureDescription {
+  font-size: 13px;
+  line-height: 1.7;
+
+  color: var(--text-muted);
+}
+
+/* SESSION */
+
+.sessionOptions {
+  display: flex;
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.sessionOption {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 13px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.active {
+  color: #022cff;
+}
+
+.sessionPrice {
+  font-size: 28px;
+}
+
+/* BUTTONS */
+
+.startBtn {
+  width: 100%;
+
+  margin-top: 40px;
+  padding: 12px;
+
+  border-radius: 10px;
+  border: 1px solid #d8d2c8;
+
+  background: transparent;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  color: var(--primary-color);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  transition: 0.3s ease;
+}
+
+.startBtn:hover {
+  background: var(--light-brown);
+}
+
+.isPremiumButton {
+  width: 100%;
+
+  margin-top: 40px;
+  padding: 12px;
+
+  border-radius: 10px;
+  border: 1px solid #d8d2c8;
+
+  background-color: var(--primary-color);
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  transition: 0.3s ease;
+}

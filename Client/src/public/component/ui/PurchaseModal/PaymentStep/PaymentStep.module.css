@@ -1,0 +1,38 @@
+.amount{
+   margin-bottom: 20px;
+
+   font-size: 18px;
+   font-weight: 600;
+}
+.amount p{
+    color: var(--primary-color);
+}
+.amount h2{
+    color: var(--primary-color);
+}
+.stepBox{
+   display: flex;
+   flex-direction: column;
+}
+.primaryBtn{
+   width: 100%;
+
+   padding: 14px;
+
+   border: none;
+   border-radius: 10px;
+
+   background: #000;
+   color: #fff;
+
+   font-size: 15px;
+   font-weight: 600;
+
+   cursor: pointer;
+
+   transition: 0.3s ease;
+}
+
+.primaryBtn:hover{
+   opacity: 0.9;
+}

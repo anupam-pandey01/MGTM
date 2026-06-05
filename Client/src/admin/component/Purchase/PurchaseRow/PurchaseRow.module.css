@@ -1,0 +1,43 @@
+.studentInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.studentInfo p{
+  font-size:12px;
+  color:#777;
+}
+.studentInfo h4{
+  font-size:15px;
+  margin-bottom:4px;
+}
+.studentId{
+    font-size: 13px;
+}
+.service{
+    font-size: 13px;
+}
+.product{
+    font-size: 13px;
+}
+.statusBadge{
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.free{
+  background:#daf5df;
+  color:#188038;
+}
+.pending{
+  background:#fff1c7;
+  color:#b26a00;
+}
+
+.paid{
+  background:#e1ddff;
+  color:#5840c7;
+}
+

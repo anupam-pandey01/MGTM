@@ -1,0 +1,199 @@
+.students-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  margin-bottom:24px;
+}
+
+.students-header h1{
+  font-size:42px;
+  color:#050b36;
+
+  margin-bottom:6px;
+}
+
+.students-header p{
+  font-size:15px;
+  color:#555;
+}
+
+.add-student-btn{
+  height:52px;
+  padding:0 22px;
+
+  border:none;
+  border-radius:10px;
+
+  background:#050b36;
+  color:#ffffff;
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  font-size:15px;
+  font-weight:600;
+
+  cursor:pointer;
+}
+
+/* FILTERS */
+
+.students-filters{
+  background:#ffffff;
+
+  border:1px solid #ddd6cc;
+  border-radius:12px;
+
+  padding:14px;
+
+  display:grid;
+  grid-template-columns:1fr 180px 160px 54px;
+  gap:12px;
+
+  margin-bottom:24px;
+}
+
+.search-box{
+  height:50px;
+
+  border:1px solid #ddd6cc;
+  border-radius:10px;
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  padding:0 16px;
+
+  color:#777;
+}
+
+.search-box input{
+  width:100%;
+
+  border:none;
+  outline:none;
+
+  font-size:14px;
+  background:transparent;
+}
+
+.students-filters select{
+  border:1px solid #ddd6cc;
+  border-radius:10px;
+
+  padding:0 14px;
+
+  font-size:14px;
+
+  outline:none;
+
+  background:#ffffff;
+}
+
+.filter-btn{
+  border:none;
+  border-radius:10px;
+
+  background:#f7f5f1;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+}
+
+/* TABLE */
+
+.students-table-wrapper{
+  background:#ffffff;
+  border:1px solid #ddd6cc;
+  border-radius:14px;
+  overflow:hidden;
+  margin-bottom:24px;
+}
+
+/* ACTION */
+
+.action-btn{
+  height:36px;
+  padding:0 16px;
+  border:none;
+  border-radius:8px;
+
+  /* color:#ffffff; */
+
+  font-size:13px;
+  font-weight:600;
+
+  cursor:pointer;
+}
+.action-btn-icon{
+    display: flex;
+    gap: 28px;
+     /* padding: 10px; */
+}
+.action-btn-icon .icon{
+    padding: 10px;
+    border-radius: 5px;
+}
+.action-btn-icon .icon:hover{
+    background-color: #d0d1d7;
+   
+}
+
+/* FOOTER */
+
+.table-footer{
+  padding:18px;
+
+  border-top:1px solid #ece7e0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.table-footer p{
+  font-size:13px;
+  color:#666;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+  .students-filters{
+    grid-template-columns:1fr;
+  }
+
+  .students-bottom-cards{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .students-page{
+    padding:20px;
+  }
+
+  .students-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
+  }
+
+  .students-table-wrapper{
+    overflow-x:auto;
+  }
+
+  .students-table{
+    min-width:800px;
+  }
+
+}

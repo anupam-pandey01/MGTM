@@ -1,0 +1,4 @@
+node_modules
+.env
+seedServices.js
+seedProduct.js

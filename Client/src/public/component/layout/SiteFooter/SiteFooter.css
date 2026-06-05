@@ -1,0 +1,134 @@
+.site-footer{
+  padding: 80px 0 40px;
+
+  background: #17172f;
+
+  color: white;
+
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+   TOP
+========================= */
+
+.footer-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+  padding-bottom: 40px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.footer-brand h3{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.footer-brand p{
+  margin-top: 12px;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  color: rgba(255,255,255,0.65);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.footer-nav{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-nav a{
+  position: relative;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  color: rgba(255,255,255,0.82);
+
+  transition: 0.3s ease;
+}
+
+.footer-nav a:hover{
+  color: white;
+}
+
+.footer-nav a::after{
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 1px;
+
+  background: white;
+
+  transition: 0.3s ease;
+}
+
+.footer-nav a:hover::after{
+  width: 100%;
+}
+
+/* =========================
+   BOTTOM
+========================= */
+
+.footer-bottom{
+  padding-top: 30px;
+}
+
+.footer-bottom p{
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+  .site-footer{
+    padding: 60px 0 30px;
+  }
+
+  .footer-top{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-nav{
+    gap: 18px;
+  }
+
+}
+
+@media(max-width:576px){
+
+  .footer-brand h3{
+    font-size: 28px;
+  }
+
+  .footer-nav{
+    flex-direction: column;
+    gap: 16px;
+  }
+
+}

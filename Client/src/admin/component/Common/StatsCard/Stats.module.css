@@ -1,0 +1,28 @@
+.dashboardStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.dashboardCard {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 1px solid #b3b2b2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.dashboardCard h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 10px;
+  font-family: "Inter", sans-serif;
+}
+
+.dashboardCard h2 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #111827;
+  font-family: "Inter", sans-serif;
+}

@@ -1,0 +1,53 @@
+.successBox{
+   text-align: center;
+}
+
+.successBox h2{
+   margin-bottom: 12px;
+   color: var(--primary-color);
+}
+
+.successBox p{
+   color: var(--text-muted);
+   line-height: 1.6;
+   margin-bottom: 25px;
+}
+
+.primaryBtn{
+   width: 100%;
+   padding: 14px;
+   border: none;
+   border-radius: 10px;
+   background: var(--primary-color);
+   color: #fff;
+   font-size: 15px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: 0.3s ease;
+}
+
+.circleTick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White tick */
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.circleCross{
+ display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ee0f07; /* Green background */
+  color: white; /* White tick */
+  font-size: 14px;
+  font-weight: bold;  
+}

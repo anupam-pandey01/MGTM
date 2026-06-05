@@ -1,0 +1,23 @@
+
+.page-hero-label{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8b6b2e;
+}
+.page-hero-title{
+    margin-top: 20px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 60px;
+    line-height: 1.02;
+    font-weight: 600;
+    color: #1a1b2e;
+}
+.page-hero-intro{
+    margin-top: 28px;
+    max-width: 720px;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #5a5c75;
+}

@@ -1,0 +1,30 @@
+:root{
+  --primary-color: #1f2342;
+  --secondary-color: #1e293b;
+  --text-muted: #5b6475;
+  --text-dark: #1a1b2e;
+
+  /* Color template */
+  --white: #ffffff;
+  --light-brown: #f5f1eb;
+  --dark-brown: #6b541d;
+
+
+  /* Card */
+  --card-bg: #dab663;
+  --card-border: rgb(254, 196, 95);
+  
+
+
+  /* Radius */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
+  --shadow-md: 0 5px 20px rgba(0,0,0,0.08);
+
+  /* Transition */
+  --transition: all 0.3s ease;
+}

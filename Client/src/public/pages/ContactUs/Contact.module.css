@@ -1,0 +1,360 @@
+/* Contact.module.css */
+
+/* =========================================
+   CONTACT PAGE
+========================================= */
+
+.contactPage{
+  background:#ffffff;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.contactHero{
+  background:#ffffff;
+  border-bottom:1px solid #e7e0d5;
+}
+
+/* =========================================
+   MAIN SECTION
+========================================= */
+
+.contactMain{
+  background:var(--light-brown);
+  padding:80px 0 100px;
+}
+
+.contactLayout{
+  display:grid;
+  grid-template-columns:1.3fr 0.7fr;
+  gap:40px;
+  align-items:start;
+}
+
+/* =========================================
+   FORM CARD
+========================================= */
+
+.contactFormCard{
+  background:#ffffff;
+
+  border:1px solid #e2ddd3;
+  border-radius:24px;
+
+  padding:36px;
+}
+
+.contactSuccess{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  padding:16px 18px;
+  margin-bottom:28px;
+
+  background:#edf8ef;
+
+  border:1px solid #b8ddbe;
+  border-radius:14px;
+
+  font-size:14px;
+  font-weight:500;
+
+  color:#2d6b39;
+}
+
+.contactForm{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+/* =========================================
+   FIELD
+========================================= */
+
+.contactField{
+  display:flex;
+  flex-direction:column;
+}
+
+.contactField label{
+  margin-bottom:10px;
+
+  font-size:14px;
+  font-weight:600;
+
+  color:#1a1b2e;
+}
+
+.contactField input,
+.contactField textarea{
+  width:100%;
+
+  padding:15px 18px;
+
+  border:1px solid #ddd6cb;
+  border-radius:14px;
+
+  background:#faf9f7;
+
+  font-family:"Source Sans 3", sans-serif;
+  font-size:15px;
+
+  color:#1a1b2e;
+
+  transition:0.3s ease;
+}
+
+.contactField input:focus,
+.contactField textarea:focus{
+  outline:none;
+
+  border-color:#1f2342;
+  background:#ffffff;
+
+  box-shadow:0 0 0 4px rgba(31,35,66,0.06);
+}
+
+.contactField textarea{
+  min-height:140px;
+  resize:vertical;
+}
+
+/* =========================================
+   PHONE
+========================================= */
+
+.phoneWrapper{
+  display:flex;
+  gap:10px;
+}
+
+.phonePrefix{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:0 18px;
+
+  border:1px solid #ddd6cb;
+  border-radius:14px;
+
+  background:#faf9f7;
+
+  font-size:15px;
+  font-weight:500;
+
+  color:#1a1b2e;
+
+  white-space:nowrap;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.contactBtn{
+  margin-top:8px;
+
+  width:fit-content;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  height:54px;
+  padding:0 30px;
+
+  border:none;
+  border-radius:14px;
+
+  background:#1f2342;
+  color:#ffffff;
+
+  font-size:15px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.3s ease;
+}
+
+.contactBtn:hover{
+  background:#2a2f57;
+  transform:translateY(-2px);
+}
+
+/* =========================================
+   INFO
+========================================= */
+
+.contactInfo{
+  position:sticky;
+  top:120px;
+}
+
+.contactInfoCard{
+  background:#f5ecd7;
+
+  border:1px solid #d4b06a;
+  border-radius:24px;
+
+  padding:32px;
+
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+.contactInfoItem{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+}
+
+.contactInfoIcon{
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:12px;
+
+  background:#ffffff;
+
+  color:#1f2342;
+
+  flex-shrink:0;
+}
+
+.contactInfoItem h4{
+  font-size:16px;
+  font-weight:700;
+
+  color:#1a1b2e;
+
+  margin-bottom:6px;
+}
+
+.contactInfoItem p{
+  font-size:15px;
+  line-height:1.7;
+
+  color:#5a5c75;
+}
+
+.contactSelect{
+  width:100%;
+
+  height:42px;
+  margin-bottom: 20px;
+  padding:0 18px;
+
+  border:1px solid #ddd6cb;
+  border-radius:5px;
+
+  background:#faf9f7;
+
+  font-size:15px;
+
+  color:#1a1b2e;
+
+  transition:0.3s ease;
+
+  outline:none;
+}
+
+.contactSelect:focus{
+  border-color:#1f2342;
+
+  background:#ffffff;
+
+  box-shadow:
+  0 0 0 4px
+  rgba(31,35,66,0.06);
+}
+
+/* =========================================
+   ERROR
+========================================= */
+
+.errorText{
+  margin-top:8px;
+
+  font-size:13px;
+  font-weight:500;
+
+  color:#d93025;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media(max-width:992px){
+
+  .contactLayout{
+    grid-template-columns:1fr;
+  }
+
+  .contactInfo{
+    position:static;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+  .contactMain{
+    padding:60px 0 80px;
+  }
+
+  .contactFormCard{
+    padding:28px;
+  }
+
+  .contactInfoCard{
+    padding:28px;
+  }
+
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media(max-width:576px){
+
+  .contactFormCard{
+    padding:22px;
+    border-radius:20px;
+  }
+
+  .contactInfoCard{
+    padding:22px;
+    border-radius:20px;
+  }
+
+  .phoneWrapper{
+    flex-direction:column;
+  }
+
+  .phonePrefix{
+    height:52px;
+    justify-content:flex-start;
+  }
+
+  .contactBtn{
+    width:100%;
+  }
+
+}

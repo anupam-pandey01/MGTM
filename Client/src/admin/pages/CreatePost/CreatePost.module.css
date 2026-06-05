@@ -1,0 +1,86 @@
+.page {
+  font-family: 'DM Sans', sans-serif;
+  /* background: #f2f4f9; */
+  min-height: 100vh;
+  /* padding: 28px 32px 60px; */
+  box-sizing: border-box;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.pageTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #1e2235;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.savedBadge {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1a7f4b;
+  background: #e6f7ef;
+  border: 1px solid #b6e6cf;
+  padding: 4px 12px;
+  border-radius: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rightCol {
+    order: -1;
+  }
+
+  .page {
+    padding: 20px 16px 48px;
+  }
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 20px;
+}
+
+.card {
+  background: #fff;
+  border: 1.5px solid #e4e7f0;
+  border-radius: 12px;
+  padding: 22px 20px;
+}
+.error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 5px;
+}
