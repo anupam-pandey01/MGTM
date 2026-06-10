@@ -10,6 +10,7 @@ export default function SEOSettings({
   onSeoDescriptionChange,
   onSeoKeywordsChange,
 }) {
+
   const [open, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState(seoKeywords?.join(", ") || "");
 
@@ -52,7 +53,9 @@ export default function SEOSettings({
               onChange={(e) => onSeoTitleChange(e.target.value)}
             />
 
-            <span className={styles.hint}>{seoTitle.length}/60 characters</span>
+            <span className={styles.hint}>
+              <span className={seoTitle.length > 60 ? styles.error: ""}>{seoTitle.length}/60 characters</span>
+            </span>
           </div>
 
           <div className={styles.field}>
@@ -67,7 +70,9 @@ export default function SEOSettings({
             />
 
             <span className={styles.hint}>
-              {seoDescription.length}/160 characters
+              <span className={seoDescription.length > 160 ? styles.error : ""}>
+                {seoDescription.length}/160 characters
+              </span>
             </span>
           </div>
 

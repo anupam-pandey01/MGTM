@@ -1,22 +1,32 @@
 import { useState } from "react";
-
 import styles from "./ProductCard.module.css";
-
 import { CircleCheck, ArrowRight } from "lucide-react";
+import { useOutletContext } from "react-router";
 
-function ProductCard({
-  product,
-  idx,
-  setOpen,
-  setServicePrice,
-  eyeBrow,
-  setProductId,
-  setServiceId
-}) {
+function ProductCard({ product, idx }) {
+  const { openPurchaseModal } = useOutletContext();
+
   const [selectedSession, setSelectedSession] = useState(
     product?.pricing?.sessions?.[0],
   );
 
+  const handleBuyNow = () => {
+    let price = 0;
+
+    if (product?.pricing?.type === "fixed") {
+      price = product?.pricing?.price;
+    } else if (product?.pricing?.type === "session") {
+      price = selectedSession?.price;
+    } else {
+      price = 0;
+    }
+
+    openPurchaseModal({
+      productId: product._id,
+      serviceId: product.service,
+      price,
+    });
+  };
 
   return (
     <div className={styles.productWrapper}>
@@ -81,7 +91,7 @@ function ProductCard({
                 </div>
 
                 <div className={styles.sessionPrice}>
-                  ₹ {selectedSession.price}
+                  ₹ {selectedSession?.price}
                   <span className={styles.gstText}> + GST</span>
                 </div>
               </>
@@ -111,28 +121,13 @@ function ProductCard({
           </div>
         </div>
 
-        {/* BUTTON */}
-
         <button
           className={
             product?.isPremium ? styles.isPremiumButton : styles.startBtn
           }
-          onClick={() => {
-            setOpen(true);
-            setServiceId(product.service);
-            setProductId(product._id)
-
-            if (product?.pricing?.type === "fixed") { 
-              setServicePrice(product?.pricing?.price);
-            } else if (product?.pricing?.type === "session") {
-              setServicePrice(selectedSession?.price);
-            } else if (product?.pricing?.type === "free") {
-              setServicePrice(0);
-            }
-          }}
+          onClick={handleBuyNow}
         >
           {product?.buttonText}
-
           <ArrowRight size={22} />
         </button>
       </div>

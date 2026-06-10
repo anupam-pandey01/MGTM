@@ -1,4 +1,4 @@
-const { loginAdmin, adminDashboard, refreshToken, adminStudent, exportPurchases } = require("../controllers/adminController");
+const { loginAdmin, adminDashboard, refreshToken, adminStudent, exportPurchases, logout } = require("../controllers/adminController");
 const { createBlog, getAllBlogs, getBlogById, updateBlog, deleteBlog } = require("../controllers/blogController");
 const authAdmin = require("../middleware/authAdmin");
 const blogUpload = require("../middleware/blogUpload");
@@ -6,6 +6,7 @@ const blogUpload = require("../middleware/blogUpload");
 const adminRouter = require("express").Router()
 
 adminRouter.post("/login", loginAdmin);
+adminRouter.post("/logout", logout)
 adminRouter.get("/dashboard", authAdmin, adminDashboard);
 adminRouter.get("/student",authAdmin, adminStudent);
 

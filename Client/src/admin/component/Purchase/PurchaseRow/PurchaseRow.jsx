@@ -35,13 +35,6 @@ const PurchaseRow = ({ purchase, setSelectedUser }) => {
           <div className="icon" onClick={()=> setSelectedUser(purchase?.user)}>
             <Eye />
           </div>
-          <div className="icon">
-            <Pencil />
-          </div>
-
-          <div className="icon">
-            <Trash />
-          </div>
         </div>
       </td>
     </tr>

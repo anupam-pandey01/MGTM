@@ -9,7 +9,7 @@
 .page-hero-title{
     margin-top: 20px;
     font-family: "Cormorant Garamond", serif;
-    font-size: 60px;
+    font-size: clamp(3rem, 7vw, 3rem);
     line-height: 1.02;
     font-weight: 600;
     color: #1a1b2e;

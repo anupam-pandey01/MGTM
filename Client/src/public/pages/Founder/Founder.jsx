@@ -1,217 +1,209 @@
 import styles from "./Founder.module.css";
+import founder from "../../../assets/images/founder.jpeg";
+import { Helmet } from "react-helmet-async";
 
 export default function FounderAbout() {
   return (
-    <div className={styles.container}>
-      {/* ── HERO ── */}
-      <section className={`${styles.hero}`}>
-        <div className={`${styles.heroWrapper} container`}>
-          <div className={`${styles.heroContent}`}>
-            <p className={styles.heroEyebrow}>LEADING WITH PURPOSE</p>
-            <h1 className={styles.heroTitle}>
-              A 360-Degree Perspective on the Education Ecosystem.
-            </h1>
-            <p className={styles.heroMission}>
-              Shivam's mission is built on providing student-centric guidance,
-              leveraging years of experience across business development and
-              university relations to transform career trajectories.
-            </p>
-          </div>
-          <div className={styles.heroPhotoWrap}>
-            <div className={styles.photoPlaceholder}>
-              <svg
-                viewBox="0 0 24 24"
-                width="52"
-                height="52"
-                stroke="currentColor"
-                fill="none"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-              </svg>
-              <span>Founder Photo</span>
-            </div>
-            <div className={styles.founderBadge}>
-              <strong>Shivam</strong>
-              <span>Founder & Managing Principal</span>
-            </div>
-          </div>
-        </div>
-      </section>
+    <>
+      <Helmet>
+        <title>
+          Shivam | Founder & Managing Principal of MGTM Consultancy LLP
+        </title>
 
-      {/* ── STORY ── */}
-      <section className={styles.story}>
-        <div className={`${styles.storyWrapper} container section`}>
-          <div className={styles.quoteCol}>
-            <div className={styles.quoteMarks}>"</div>
-            <blockquote className={styles.pullQuote}>
-              "What students needed wasn't faster answers — it was deeper
-              guidance."
-            </blockquote>
-          </div>
-          <div className={styles.storyCol}>
-            <p>
-              Shivam observed a troubling industry pattern: counsellors turning
-              guidance into a mere transaction. This mechanical approach created
-              a widening gap between a student's true aspirations and the path
-              they were ultimately placed on.
-            </p>
-            <p>
-              MGTM Consultancy was founded to bridge this gap. Moving away from
-              the generic "application processing" model, Shivam integrates his
-              deep understanding of university relations and business
-              development to provide a multidimensional mentorship that
-              prioritizes the student's long-term growth over short-term
-              metrics.
-            </p>
-          </div>
-        </div>
-      </section>
+        <meta
+          name="description"
+          content="Meet Shivam, Founder and Managing Principal of MGTM Consultancy LLP. Learn about his journey across the education ecosystem and his vision of providing research-driven, ethical, and multidimensional career guidance."
+        />
 
-      {/* ── PHILOSOPHY ── */}
-      <section className={styles.philosophy}>
-        <div className="container section">
-          <div className={styles.philosophySection}>
-            <h2 className={styles.secTitle}>The MGTM Philosophy</h2>
-            <div className={styles.secDivider}></div>
-            <div className={styles.philGrid}>
-              <div className={styles.philCard}>
-                <div className={styles.philIcon}>
-                  <svg viewBox="0 0 24 24">
-                    <path d="M9 3h6M9 3v8l-4 9h14l-4-9V3" />
-                    <circle
-                      cx="10.5"
-                      cy="16"
-                      r=".8"
-                      fill="#0d1b3e"
-                      stroke="none"
-                    />
-                    <circle
-                      cx="14"
-                      cy="14"
-                      r=".6"
-                      fill="#0d1b3e"
-                      stroke="none"
-                    />
-                  </svg>
-                </div>
-                <h3>Scientific Methodology</h3>
+        <meta
+          name="keywords"
+          content="Shivam MGTM, MGTM founder, Founder of MGTM Consultancy LLP, career coach India, education consultant India, study abroad mentor, ethical career guidance"
+        />
+
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+
+        <meta name="author" content="MGTM Consultancy LLP" />
+
+        <link rel="canonical" href="https://www.mgtmconsultancy.com/founder" />
+
+        <meta
+          property="og:title"
+          content="Shivam | Founder & Managing Principal of MGTM Consultancy LLP"
+        />
+
+        <meta
+          property="og:description"
+          content="Discover Shivam's journey from working across the education ecosystem to building MGTM Consultancy LLP, a purpose-driven consultancy focused on ethical and research-led guidance."
+        />
+
+        <meta
+          property="og:image"
+          content="https://www.mgtmconsultancy.com/images/founder.jpeg"
+        />
+
+        <meta
+          property="og:image:alt"
+          content="Shivam, Founder and Managing Principal of MGTM Consultancy LLP"
+        />
+
+        <meta
+          property="og:url"
+          content="https://www.mgtmconsultancy.com/founder"
+        />
+
+        <meta property="og:type" content="profile" />
+
+        <meta property="og:site_name" content="MGTM Consultancy LLP" />
+
+        <meta property="og:locale" content="en_IN" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta
+          name="twitter:title"
+          content="Shivam | Founder of MGTM Consultancy LLP"
+        />
+
+        <meta
+          name="twitter:description"
+          content="Learn about Shivam's mission to transform career guidance through honesty, integrity, and research-driven mentorship."
+        />
+
+        <meta
+          name="twitter:image"
+          content="https://www.mgtmconsultancy.com/images/founder.jpeg"
+        />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Shivam",
+            jobTitle: "Founder & Managing Principal",
+            worksFor: {
+              "@type": "EducationalOrganization",
+              name: "MGTM Consultancy LLP",
+            },
+            url: "https://www.mgtmconsultancy.com/founder",
+            image: "https://www.mgtmconsultancy.com/images/founder.jpeg",
+            description:
+              "Founder of MGTM Consultancy LLP with experience across university relations, business development, research, content creation, and ethical career guidance.",
+            knowsAbout: [
+              "Career Guidance",
+              "Study Abroad Counselling",
+              "Psychometric Assessments",
+              "Student Mentorship",
+              "Profile Building",
+            ],
+          })}
+        </script>
+      </Helmet>
+
+      <div className={styles.container}>
+        <section className={`${styles.hero}`}>
+          <div className={`${styles.heroWrapper} container`}>
+            <div className={`${styles.heroContent}`}>
+              <p className={styles.heroEyebrow}>LEADING WITH PURPOSE</p>
+              <h1 className={styles.heroTitle}>
+                A 360-Degree Perspective on the Education Ecosystem.
+              </h1>
+              <p className={styles.heroMission}>
+                Shivam’s journey began with more than three years of working
+                across multiple verticals in the education ecosystem — business
+                development, university relations, research, content creation,
+                data refinement, and cross departmental liaison roles. These
+                experiences gave him a rare, 360 degrees understanding of how
+                students make decisions and how easily those decisions can be
+                shaped by incomplete information, external pressure, or
+                one-dimensional advice. Working in a fast-paced environment
+                defined by cut throat competition, where roles often prioritised
+                closures, revenue, and sales skills, Shivam felt a growing
+                disconnect between what the system demanded and what students
+                truly needed. While the industry pushed for speed, he envisioned
+                himself as a career coach who would guide students with
+                sincerity, depth, and a genuine commitment to helping them
+                achieve their goals. Shivam realised that what students needed
+                wasn’t faster answers — it was deeper guidance. They needed
+                someone who would evaluate every dimension of their journey with
+                honesty, integrity, and transparency. Someone who would help
+                them understand themselves before choosing a stream, a career, a
+                course, a country, or a university. Someone who would prioritise
+                clarity over convenience and ethics over ease.
+              </p>
+            </div>
+            <div className={styles.heroPhotoWrap}>
+              <img src={founder} alt="founder-image" />
+              <div className={styles.founderBadge}>
+                <strong>Shivam</strong>
+                <span>Founder & Managing Principal</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── STORY ── */}
+        <section className={styles.story}>
+          <div className={`${styles.storyWrapper} container `}>
+            <div className={styles.quoteCol}>
+              <div className={styles.quoteMarks}>"</div>
+              <blockquote className={styles.pullQuote}>
+                "Born from the belief that career and education choices must be
+                multidimensional, not one‑dimensional"
+              </blockquote>
+            </div>
+            <div className={styles.storyCol}>
+              <p>
+                Over time, he noticed a pattern that troubled him deeply:
+                students were making life defining choices based on a single
+                factor — a trend, a country, a friend’s influence, while some
+                counsellors are turning guidance into a transaction (incentive
+                driven!) rather than a thoughtful, student centric process.
+                Critical elements like skill gaps, financial realities, ROI,
+                long term career alignment, and future readiness were often
+                overlooked. The result was a widening gap between a student’s
+                aspirations and the path they were placed on. Driven by this
+                conviction, Shivam pursued a professional career coaching
+                certification to understand the science, psychology, and
+                methodology behind career decisions. This wasn’t a career shift
+                — it was a commitment to doing things the right way. He
+                envisioned a space where students could explore their identity,
+                strengths, aspirations, opportunities, and future pathways with
+                depth and dignity. This vision became MGTM — Multidimensional
+                Growth & Transformation Mentor. A purpose driven consultancy
+                built on research, integrity and clarity.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── PHILOSOPHY ── */}
+        <section className={styles.philosophy}>
+          <div className="container section">
+            <div className={styles.philosophySection}>
+              <h2 className={styles.secTitle}>The MGTM Philosophy</h2>
+              <div className={styles.secDivider}></div>
+              <div className={styles.founderPhilosophy}>
                 <p>
-                  Decisions are backed by research and the psychology of career
-                  development, ensuring that every step is purposeful and
-                  grounded in evidence.
+                  Today, Shivam stands as a mentor who believes that every
+                  student deserves guidance that is honest, multidimensional,
+                  and future ready. MGTM is his promise to help students bridge
+                  the gap between where they are and what they can become —
+                  replacing confusion with clarity, pressure with purpose, and
+                  guesswork with guided strategy.
                 </p>
-              </div>
-
-              <div className={styles.philCard}>
-                <div className={styles.philIcon}>
-                  <svg viewBox="0 0 24 24">
-                    <path d="M9 17c0-2.5-3-4-3-7a6 6 0 1112 0c0 3-3 4.5-3 7H9z" />
-                    <path d="M9 17h6M9.5 21h5M12 21v-4" />
-                  </svg>
+                <div>
+                  <div>
+                    <blockquote className={styles.pullQuote}>
+                      "Born from the belief that career and education choices
+                      must be multidimensional, not one‑dimensional"
+                    </blockquote>
+                  </div>
                 </div>
-                <h3>Mental Clarity</h3>
-                <p>
-                  We remove the noise of the industry to reveal the clear,
-                  actionable path forward for students, focusing on their unique
-                  psychological profile.
-                </p>
-              </div>
-
-              <div className={styles.philCard}>
-                <div className={styles.philIcon}>
-                  <svg viewBox="0 0 24 24">
-                    <path d="M12 2l7 3v5c0 5-3.5 9.74-7 11-3.5-1.26-7-6-7-11V5l7-3z" />
-                    <path d="M9 12l2 2 4-4" />
-                  </svg>
-                </div>
-                <h3>Unyielding Integrity</h3>
-                <p>
-                  Guidance must be honest to be effective. We champion a brand
-                  of mentorship that values transparency and the student's best
-                  interest above all else.
-                </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── JOURNEY ── */}
-      <section className={styles.journey}>
-        <div className="container section">
-          <div className={styles.jLeft}>
-            <h2 className={styles.jHeading}>The Journey</h2>
-            <div className={styles.jDivider}></div>
-            <p className={styles.jSub}>
-              A journey through the experiences that shaped Shivam's
-              multidimensional methodology.
-            </p>
-          </div>
-
-          <div className={styles.jRight}>
-            <div className={styles.jItem}>
-              <div className={styles.jMetaCol}>
-                <span className={styles.jMetaText}>2021</span>
-              </div>
-              <div className={styles.jLineCol}>
-                <div className={styles.jDot}></div>
-                <div className={styles.jLine}></div>
-              </div>
-              <div className={styles.jBody}>
-                <h3 className={styles.jTitle}>
-                  Professional Coaching Certification
-                </h3>
-                <p className={styles.jDesc}>
-                  Shivam deepens his commitment to the science and psychology
-                  behind career decisions, earning professional certification to
-                  bring editorial rigor to student mentorship.
-                </p>
-              </div>
-            </div>
-
-            <div className={styles.jItem}>
-              <div className={styles.jMetaCol}>
-                <span className={styles.jMetaText}>Vision</span>
-              </div>
-              <div className={styles.jLineCol}>
-                <div className={styles.jDot}></div>
-                <div className={styles.jLine}></div>
-              </div>
-              <div className={styles.jBody}>
-                <h3 className={styles.jTitle}>The Birth of MGTM</h3>
-                <p className={styles.jDesc}>
-                  Multidimensional Growth & Transformation Mentor (MGTM) is
-                  launched. A purpose-driven consultancy built on research,
-                  integrity, and clarity, bridging the gap between business
-                  development and educational guidance.
-                </p>
-              </div>
-            </div>
-
-            <div className={styles.jItem}>
-              <div className={styles.jMetaCol}>
-                <span className={styles.jMetaText}>Today</span>
-              </div>
-              <div className={styles.jLineCol}>
-                <div className={styles.jDot}></div>
-                <div className={styles.jLine}></div>
-              </div>
-              <div className={styles.jBody}>
-                <h3 className={styles.jTitle}>Bridging the Gap</h3>
-                <p className={styles.jDesc}>
-                  Shivam stands as a mentor helping students bridge the gap
-                  between where they are and what they can become, serving a
-                  global community with an editorial soul.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 }

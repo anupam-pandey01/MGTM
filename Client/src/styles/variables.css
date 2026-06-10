@@ -27,4 +27,17 @@
 
   /* Transition */
   --transition: all 0.3s ease;
+
+
+    /* Colors */
+  --color-bg:         #f5f3ef;
+  --color-surface:    #ffffff;
+  --color-ink:        #141414;
+  --color-muted:      #7a7670;
+  --color-border:     #e4e2de;
+  --color-badge-bg:   #ebebea;
+  --color-badge-text: #5a5854;
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
 }

@@ -14,11 +14,28 @@ exports.createOrder = async (req, res) => {
   try {
     const { amount, purchaseId } = req.body;
 
+    // Find purchase
+    const purchase = await Purchase.findById(purchaseId);
+
+    if (!purchase) {
+      return res.status(404).json({
+        success: false,
+        message: "Purchase not found",
+      });
+    }
+
+    // Already paid?
+    if (purchase.paymentStatus === "paid") {
+      return res.status(400).json({
+        success: false,
+        message: "This purchase has already been paid.",
+      });
+    }
+
     const options = {
       amount: amount * 100,
       currency: "INR",
       receipt: purchaseId,
-
       notes: {
         purchaseId,
         amount,
@@ -27,23 +44,26 @@ exports.createOrder = async (req, res) => {
 
     const order = await razorpay.orders.create(options);
 
-    await Purchase.findByIdAndUpdate(purchaseId, {
-      razorpayOrderId: order.id,
-    });
+    purchase.razorpayOrderId = order.id;
 
-    res.status(200).json(order);
+    await purchase.save();
+
+    return res.status(200).json(order);
+
   } catch (error) {
     console.log(error);
-    res.status(500).json({
+
+    return res.status(500).json({
       success: false,
-      message: error,
+      message: error.message,
     });
   }
 };
 
 exports.verifyPayment = async (req, res) => {
   try {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
+      req.body;
 
     const generatedSignature = crypto
       .createHmac("sha256", process.env.RAZORPAY_API_SECRET)

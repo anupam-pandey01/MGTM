@@ -2,10 +2,6 @@
   background-color: #ffffff;
 }
 
-/* =========================
-   HERO
-========================= */
-
 .eyebrow {
   font-size: 14px;
   color: var(--dark-brown);
@@ -214,6 +210,37 @@
   font-size: 14px;
   color: var(--text-muted);
   display: block;
+}
+
+.principleCardLast{
+  margin-top: 40px;
+   background: rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(12px);
+
+  border-radius: 28px;
+
+  padding: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  transition: 0.3s ease;
+}
+.principleCardLast h3{
+  font-size: 1.25rem;
+  margin-bottom: 14px;
+  color: var(--text-dark);
+}
+.principleCardLast span{
+  line-height: 1.5;
+  font-size: 14px;
+  color: var(--text-muted);
+  display: block;
+}
+
+.principleCardLast:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 /* =========================

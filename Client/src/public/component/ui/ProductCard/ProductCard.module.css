@@ -6,14 +6,10 @@
 .productCard {
   width: 380px;
   min-height: 620px;
-
   background: #ffffff;
-
   border: 1px solid #d8d2c8;
   border-radius: 15px;
-
   padding: 18px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -69,8 +65,6 @@
   border-top: 1px solid #d8d2c8;
   margin-bottom: 28px;
 }
-
-/* FEATURES */
 
 .featureBox {
   display: flex;

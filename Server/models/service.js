@@ -28,11 +28,6 @@ const serviceSchema = new mongoose.Schema(
       default: "Explore Service",
     },
 
-    order:{
-      type: Number,
-      default: 0
-    },
-
     // Services page
     heroSection: {
       eyebrow: {

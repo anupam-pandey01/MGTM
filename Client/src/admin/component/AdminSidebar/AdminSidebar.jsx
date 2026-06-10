@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import { NavLink } from "react-router";
+import { useAuth } from "../../context/AdminAuthContext";
 
 const AdminSidebar = () => {
 
@@ -29,8 +30,8 @@ const AdminSidebar = () => {
     },
 
     {
-      name: "Services",
-      path: "/admin/services",
+      name: "Add Stats",
+      path: "/admin/stats",
       icon: <BriefcaseBusiness size={20} />,
     },
 
@@ -46,6 +47,8 @@ const AdminSidebar = () => {
       icon: <MessageSquare size={20} />,
     },
   ];
+
+  const { logout } = useAuth();
 
   return (
     <aside className="sidebar">
@@ -79,7 +82,7 @@ const AdminSidebar = () => {
       {/* BOTTOM */}
 
       <div className="sidebar-bottom">
-        <button className="sidebar-logout">
+        <button className="sidebar-logout" onClick={()=> logout()}>
 
           <LogOut size={20} />
 

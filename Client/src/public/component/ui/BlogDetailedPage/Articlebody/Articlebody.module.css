@@ -1,0 +1,320 @@
+.wrap {
+  background: var(--light-brown);
+  padding: 56px 32px 48px;
+}
+
+/* ── Constrained reading width ─────────────────────────────── */
+.content {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--secondary-color);
+}
+
+/* ── Headings ───────────────────────────────────────────────── */
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  color: var(--primary-color);
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  margin: 2em 0 0.6em;
+}
+
+.content h1 {
+  font-size: 36px;
+}
+.content h2 {
+  font-size: 28px;
+}
+.content h3 {
+  font-size: 22px;
+}
+.content h4 {
+  font-size: 18px;
+}
+.content h5 {
+  font-size: 16px;
+}
+.content h6 {
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ── Paragraphs ─────────────────────────────────────────────── */
+.content p {
+  margin: 0 0 1.4em;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Blockquote (Jodit pullquote / leading quote) ──────────── */
+.content blockquote {
+  margin: 2em 0;
+  padding: 0;
+  border: none;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* ── Key Takeaways box  ─────────────────────────────────────── */
+/* Jodit often wraps these in a styled <div> or <ul class="..."> */
+/* We style any <ul> that sits inside a <div> with background    */
+.content div[style*="background"],
+.content .takeaways,
+.content [class*="takeaway"],
+.content [class*="keypoint"] {
+  background: #f0eeea !important;
+  border-radius: 2px;
+  padding: 28px 32px;
+  margin: 2em 0;
+}
+
+.content div[style*="background"] *,
+.content .takeaways *,
+.content [class*="takeaway"] *,
+.content [class*="keypoint"] * {
+  background: transparent !important;
+}
+
+/* Generic key-takeaways pattern: a heading + list inside a box */
+.content div[style*="background"] p:first-child,
+.content div[style*="background"] span:first-child {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* ── Lists ──────────────────────────────────────────────────── */
+.content ul,
+.content ol {
+  margin: 0 0 1.4em 1.2em;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.content li {
+  padding-left: 6px;
+  line-height: 1.65;
+}
+
+.content ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.content ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-left: 0;
+}
+
+/* Checkmark bullet for ul items */
+.content ul li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none'%3E%3Ccircle cx='9' cy='9' r='8.5' stroke='%23aaa'/%3E%3Cpath d='M5.5 9l2.5 2.5 4.5-5' stroke='%23888' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.content ol {
+  list-style: decimal;
+}
+
+/* ── Links ──────────────────────────────────────────────────── */
+.content a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+}
+.content a:hover {
+  opacity: 0.6;
+}
+
+/* ── Bold / Italic / Underline ──────────────────────────────── */
+.content strong,
+.content b {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.content em,
+.content i {
+  font-style: italic;
+}
+.content u {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.content s,
+.content del {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* ── Images ─────────────────────────────────────────────────── */
+.content img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 2px;
+  margin: 1.6em 0;
+  display: block;
+}
+
+/* Jodit sometimes wraps images in <p> */
+.content p img {
+  margin: 1.6em 0;
+}
+
+/* ── Figure / Caption ───────────────────────────────────────── */
+.content figure {
+  margin: 2em 0;
+}
+
+.content figcaption {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ── Horizontal Rule ────────────────────────────────────────── */
+.content hr {
+  border: none;
+  border-top: 1.5px solid var(--dark-brown);
+  margin: 2.5em 0;
+}
+
+/* ── Code ───────────────────────────────────────────────────── */
+.content code {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  background: #ebebeb;
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #c7254e;
+}
+
+.content pre {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 20px 24px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 2em 0;
+}
+
+.content pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* ── Tables ─────────────────────────────────────────────────── */
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: 14px;
+}
+
+.content th {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.content td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--dark-brown);
+  vertical-align: top;
+}
+
+.content tr:last-child td {
+  border-bottom: none;
+}
+.content tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* ── Text alignment (Jodit toolbar) ────────────────────────── */
+.content [style*="text-align: center"],
+.content [align="center"] {
+  text-align: center;
+}
+
+.content [style*="text-align: right"],
+.content [align="right"] {
+  text-align: right;
+}
+
+.content [style*="text-align: justify"] {
+  text-align: justify;
+}
+
+/* ── Font sizes set inline by Jodit ────────────────────────── */
+/* We let them pass through but cap very large ones */
+.content [style*="font-size"] {
+  max-width: 100%;
+}
+
+/* ── Video embeds (iframes) ─────────────────────────────────── */
+.content iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 2px;
+  margin: 2em 0;
+  display: block;
+}
+
+/* ── Jodit-specific wrappers ────────────────────────────────── */
+.content .jodit-wysiwyg {
+  all: unset;
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    padding: 40px 20px 36px;
+  }
+  .content {
+    font-size: 15px;
+  }
+  .content h2 {
+    font-size: 22px;
+  }
+  .content blockquote {
+    font-size: 17px;
+  }
+}

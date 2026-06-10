@@ -18,6 +18,7 @@ const createBlog = async (req, res) => {
       tags,
     } = req.body;
 
+
     const existingBlog = await Blog.findOne({ slug });
 
     if (existingBlog) {
@@ -60,8 +61,10 @@ const createBlog = async (req, res) => {
     res.status(201).json({
       success: true,
       blog,
+      message: "Blog Created Successfully"
     });
   } catch (error) {
+    console.error(error)
     res.status(500).json({
       success: false,
       message: error.message,
@@ -74,7 +77,6 @@ const getAllBlogs = async (req, res) => {
     const page = Number(req.query.page) || 1;
     const limit = 5;
     
-    console.log(page)
     const skip = (page - 1) * limit;
 
     const blogs = await Blog.find()
@@ -137,55 +139,9 @@ const getBlogById = async (req, res) => {
 
 const updateBlog = async (req, res) => {
   try {
-    const {
-      title,
-      slug,
-      shortDescription,
-      content,
-      category,
-      author,
-      seoTitle,
-      seoDescription,
-      seoKeywords,
-      status,
-      featured,
-      tags,
-    } = req.body;
+    const { id } = req.params;
 
-    const plainText = content.replace(/<[^>]*>/g, "");
-    const wordCount = plainText.trim().split(/\s+/).length;
-
-    const updateData = {
-      title,
-      slug,
-      shortDescription,
-      content,
-      category,
-      author,
-      seoTitle,
-      seoDescription,
-      seoKeywords,
-      status,
-      featured,
-      tags,
-      readTime: Math.ceil(wordCount / 200),
-    };
-
-    if (status === "Published") {
-      updateData.publishedAt = new Date();
-    }
-
-    if (req.file) {
-      updateData.featuredImage = {
-        url: req.file.path,
-        publicId: req.file.filename,
-      };
-    }
-
-    const blog = await Blog.findByIdAndUpdate(req.params.id, updateData, {
-      new: true,
-      runValidators: true,
-    });
+    const blog = await Blog.findById(id);
 
     if (!blog) {
       return res.status(404).json({
@@ -194,14 +150,43 @@ const updateBlog = async (req, res) => {
       });
     }
 
+    const updateData = {
+      ...req.body,
+      tags: req.body.tags
+        ? JSON.parse(req.body.tags)
+        : blog.tags,
+      seoKeywords: req.body.seoKeywords
+        ? JSON.parse(req.body.seoKeywords)
+        : blog.seoKeywords,
+    };
+
+    if (req.file) {
+      updateData.featuredImage = {
+        url: req.file.path,
+        public_id: req.file.filename,
+      };
+    }
+
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      id,
+      updateData,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
     res.status(200).json({
       success: true,
-      blog,
+      message: "Blog updated successfully",
+      blog: updatedBlog,
     });
-  } catch (error) {
+  } catch (err) {
+    console.error(err);
+
     res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Server Error",
     });
   }
 };
@@ -217,16 +202,23 @@ const deleteBlog = async (req, res) => {
       });
     }
 
+    if (blog.featuredImage?.publicId) {
+      await cloudinary.uploader.destroy(
+        blog.featuredImage.publicId
+      );
+    }
+
     await blog.deleteOne();
 
     res.status(200).json({
       success: true,
       message: "Blog deleted successfully",
     });
-  } catch (error) {
+  } catch (err) {
+    console.log(err)
     res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Server Error",
     });
   }
 };

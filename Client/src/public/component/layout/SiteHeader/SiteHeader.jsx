@@ -3,11 +3,12 @@ import { Link } from "react-router";
 import { Menu, X } from "lucide-react";
 
 import "./SiteHeader.css";
-import logo from "../../../../assets/icons/logo.png";
+import logo from "../../../../assets/icons/mgmt-logo.png";
 
 const navLinks = [
   { path: "/about", label: "About Us" },
-  { path: "/services", label: "Services Offered" },
+  { path: "/real-metrics", label: "Real Metrics" },
+  { path: "/services", label: "Services" },
   { path: "/partnerships", label: "Partnerships" },
   { path: "/faq", label: "FAQ's" },
   { path: "/blog", label: "Blogs" },

@@ -57,6 +57,8 @@ const getServicesPageDetail = async(req, res)=>{
     console.log(err)
   }
 }
+
+
 module.exports = {
   getServices,
   getServicesPageDetail,

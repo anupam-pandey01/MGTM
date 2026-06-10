@@ -7,7 +7,29 @@ const Purchase = require("../models/purchase");
 const User = require("../models/user");
 const Message = require("../models/message");
 const Service = require("../models/service");
-// const Blog = require("../models/blog");
+
+const logout = async (req, res) => {
+  try {
+    res.clearCookie("refreshToken", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Logged out successfully",
+    });
+  } catch (error) {
+    console.error("Logout Error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+};
+
 
 const loginAdmin = async (req, res) => {
   try {
@@ -237,4 +259,5 @@ module.exports = {
   refreshToken,
   adminStudent,
   exportPurchases,
+  logout,
 };

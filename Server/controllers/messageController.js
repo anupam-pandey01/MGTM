@@ -33,6 +33,27 @@ const createMessage = async (req, res) => {
   }
 };
 
+const getAllMessages = async (req, res) => {
+  try {
+    const messages = await Message.find()
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: messages.length,
+      messages,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+};
+
+
 module.exports = {
-    createMessage
+    createMessage,
+    getAllMessages
 }

@@ -8,20 +8,26 @@ import {
   createOrder,
   verifyPayment,
 } from "../../../../services/paymentServices/paymentApi";
+import { calculateGst } from "../../../../utils/calculateGst";
 
 const PurchaseModal = ({
   open,
   setOpen,
-  productData,
   productId,
   serviceId,
-  servicePrice,
+  price
+  // price,
+  // totalAmount,
+  // GSTAmount,
 }) => {
   const [step, setStep] = useState(1);
   const [purchaseId, setPurchaseId] = useState("");
   const [userId, setUserId] = useState("");
   const [paymentMessage, setPaymentMessage] = useState({});
 
+  const GSTAmount = calculateGst(price);
+  const totalAmount = Number(price) + Number(GSTAmount);
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,18 +38,17 @@ const PurchaseModal = ({
   if (!open) return null;
 
   const handlePayment = async () => {
-    
-    if (servicePrice == 0) return;
+    if (totalAmount == 0) return;
 
     try {
       const order = await createOrder({
-        amount: servicePrice,
+        amount: totalAmount,
         purchaseId,
       });
 
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-        amount: order.amount,
+        amount: order.totalAmount,
         currency: order.currency,
         order_id: order.id,
         name: "MGTM Consultancy LLP",
@@ -94,28 +99,14 @@ const PurchaseModal = ({
     }
   };
 
-  //   useEffect(() => {
-  //     setFormData((prev) => ({
-  //       ...prev,
-  //       serviceName,
-  //       price: servicePrice,
-  //       productName,
-  //     }));
-  //   }, [serviceName, servicePrice, productName]);
-
-  //   useEffect(() => {
-  //     if (open) {
-  //       setStep(1);
-  //     }
-  //   }, [open]);
-
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <button
           className={styles.closeBtn}
           onClick={() => {
-            (setOpen(false), setStep(1));
+            setOpen(false);
+            setStep(1);
           }}
         >
           ✕
@@ -124,7 +115,7 @@ const PurchaseModal = ({
         <div className={styles.stepper}>
           <div className={step >= 1 ? styles.active : ""}>1. Details</div>
 
-          {servicePrice == 0 ? (
+          {totalAmount == 0 ? (
             <></>
           ) : (
             <div className={step >= 2 ? styles.active : ""}>2. Payment</div>
@@ -139,7 +130,7 @@ const PurchaseModal = ({
                 : ""
             }
           >
-            3. Success
+            {totalAmount == 0 ? "2." : "3."} Success
           </div>
         </div>
 
@@ -148,7 +139,8 @@ const PurchaseModal = ({
             setFormData={setFormData}
             formData={formData}
             setStep={setStep}
-            servicePrice={servicePrice}
+            totalAmount={totalAmount}
+            price={price}
             serviceId={serviceId}
             productId={productId}
             setUserId={setUserId}
@@ -157,10 +149,12 @@ const PurchaseModal = ({
           />
         )}
 
-        {step === 2 && servicePrice != 0 && (
+        {step === 2 && totalAmount != 0 && (
           <PaymentStep
-            servicePrice={servicePrice}
             handlePayment={handlePayment}
+            price={price}
+            totalAmount={totalAmount}
+            GSTAmount={GSTAmount}
           />
         )}
 

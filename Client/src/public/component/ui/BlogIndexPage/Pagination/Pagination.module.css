@@ -1,0 +1,40 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 56px;
+}
+
+.btn {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary);
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+.btn:hover:not(:disabled) {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.info {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  min-width: 110px;
+  text-align: center;
+}

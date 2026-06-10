@@ -30,20 +30,32 @@ const SiteFooter = () => {
               About
             </Link>
 
-            <Link to="/services">
+            {/* <Link to="/services">
               Services
-            </Link>
+            </Link> */}
 
-            <Link to="/partnerships">
+            {/* <Link to="/partnerships">
               Partnerships
-            </Link>
+            </Link> */}
 
-            <Link to="/faq">
+            {/* <Link to="/faq">
               FAQ
+            </Link> */}
+
+            {/* <Link to="/blog">
+              Blogs
+            </Link> */}
+
+            <Link to="/terms-condition">
+              Terms and Condition
             </Link>
 
-            <Link to="/blog">
-              Blogs & Vlogs
+             <Link to="/privacy-policy ">
+              Privacy Policy
+            </Link>
+
+            <Link to="/refund-policy ">
+              Refund Policy
             </Link>
 
             <Link to="/contact">

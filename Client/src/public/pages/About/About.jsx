@@ -1,32 +1,27 @@
 import styles from "./About.module.css";
 import { Helmet } from "react-helmet-async";
-import {
-  ShieldCheck,
-  Brain,
-  Users,
-  BadgeCheck,
-} from "lucide-react";
+import { ShieldCheck, Brain, Users, BadgeCheck } from "lucide-react";
 
 const principles = [
   {
     icon: Brain,
-    title: "Research First",
-    text: "Every recommendation cites a reason.",
+    title: "Research Led Guidance",
+    text: "Our advice begins with understanding the student and ends with evidence. From skill gap mapping to long term career viability, every recommendation is backed by data that protects the student’s future.",
   },
   {
     icon: ShieldCheck,
     title: "Transparency by Default",
-    text: "Our public numbers are real, even when they're small.",
+    text: "Our numbers stay public and honest, even when they are small. The data is real, visible and never inflated.",
   },
   {
     icon: Users,
-    title: "Student-led, Family-aware",
-    text: "The student decides; the family is informed.",
+    title: "Student-centric",
+    text: "We follow student-centric approach that helps students to make informed decisions.",
   },
   {
     icon: BadgeCheck,
-    title: "One Honest No",
-    text: "Is worth more than ten convenient yeses.",
+    title: "Honesty and Integrity as practice",
+    text: "We choose clarity over convenience and truth over trends — ensuring every decision serves the student’s long term growth. Because one ‘no’ is worth more than convenient ‘yeses’.",
   },
 ];
 
@@ -68,11 +63,10 @@ const About = () => {
           </h1>
 
           <p className={styles.aboutIntro}>
-            MGTM Consultancy LLP exists for one reason: to give
-            students and families honest, evidence-based guidance at
-            the moments that matter most — choosing a stream,
-            choosing a career, and choosing where in the world to
-            study.
+            MGTM Consultancy LLP exists for one reason: to give students and
+            families honest, evidence-based guidance at the moments that matter
+            most — choosing a stream, choosing a career, and choosing where in
+            the world to study.
           </p>
         </header>
 
@@ -81,31 +75,30 @@ const About = () => {
           <section className={`section container ${styles.aboutMgtm}`}>
             <div className={styles.introContent}>
               <p>
-                MGTM (Multidimensional Growth & Transformation
-                Mentor) is a purpose driven career coaching
-                consultancy committed to helping students make
-                informed, future proof decisions.
-              </p>
+                <strong>
+                  MGTM (Multidimensional Growth & Transformation Mentor)
+                </strong>{" "}
+                is a purpose driven career coaching consultancy committed to
+                helping students make informed, future proof decisions. In a
+                world where studying abroad or choosing a career is often
+                reduced to a sales pitch, MGTM stands as an ethical, research
+                driven alternative that prioritises clarity, self awareness, and
+                long term growth. Most students make decisions based on a single
+                factor — a country, a course, a trend, or a friend’s influence.
+                At MGTM, we believe growth should never be unidimensional. We
+                help students explore the full spectrum of who they are: their
+                <strong>interests, passions, skills, academic strengths, financial
+                realities, and future opportunities.</strong> Our multidimensional approach ensures that every student
+                understands not just where to go, but why they are going, what
+                they will learn, and how it aligns with their long term goals.
+                We work closely with <strong>students, parents, schools, and corporates</strong> 
+                to build a holistic ecosystem of informed decision making — one
+                that replaces confusion with clarity, pressure with purpose, and
+                guesswork with guided strategy. MGTM is not a sales driven
+                consultancy. MGTM is a <strong>  trusted career coach, a holistic
+                education navigation partner, and a mentor for multidimensional
+                growth and transformation.  </strong>
 
-              <p>
-                In a world where studying abroad or choosing a career
-                is often reduced to a sales pitch, MGTM stands as an
-                ethical, research driven alternative that prioritises
-                clarity, self awareness, and long term growth.
-              </p>
-
-              <p>
-                Our multidimensional approach ensures that every
-                student understands not just where to go, but why
-                they are going, what they will learn, and how it
-                aligns with their long term goals.
-              </p>
-
-              <p>
-                MGTM is not a sales driven consultancy. MGTM is a
-                trusted career coach, a holistic education navigation
-                partner, and a mentor for multidimensional growth and
-                transformation.
               </p>
             </div>
 
@@ -119,10 +112,11 @@ const About = () => {
 
               <div className={styles.visionCard}>
                 <p>
-                  To build a world where every student makes
-                  confident, informed, multidimensional education and
-                  career decisions — grounded in self awareness,
-                  future readiness, and ethical guidance.
+                  To build a world where every student makes confident,
+                  informed, multidimensional education and career decisions —
+                  grounded in self awareness, future readiness, and ethical
+                  guidance — creating a generation that grows with purpose,
+                  clarity, and impact.
                 </p>
               </div>
             </section>
@@ -132,7 +126,11 @@ const About = () => {
               <div className={styles.sectionHeading}>
                 <p>Our Mission</p>
 
-                <h2>What Drives MGTM</h2>
+                <h2>
+                  To guide students through stream, career, course, country, and
+                  university selection using a research driven, student centric
+                  approach.
+                </h2>
               </div>
 
               <div className={styles.missionGrid}>
@@ -140,9 +138,8 @@ const About = () => {
                   <h3>Research Driven Guidance</h3>
 
                   <p>
-                    Helping students choose the right stream,
-                    course, university, and country through
-                    evidence-based analysis.
+                    To empower students to navigate dynamic education landscapes
+                    with confidence, clarity, and long term vision.
                   </p>
                 </div>
 
@@ -150,8 +147,9 @@ const About = () => {
                   <h3>Ethical Mentorship</h3>
 
                   <p>
-                    Transparent and student-first guidance without
-                    sales pressure.
+                    To provide ethical, transparent, and non sales driven
+                    mentorship that prioritises student well being over
+                    conversions.
                   </p>
                 </div>
 
@@ -159,8 +157,9 @@ const About = () => {
                   <h3>Skill Gap Analysis</h3>
 
                   <p>
-                    Mapping strengths, weaknesses, and future
-                    readiness for better decisions.
+                    To conduct skill gap analysis, profile evaluation, ROI
+                    assessment, and future readiness mapping so students choose
+                    pathways aligned with their strengths and aspirations.
                   </p>
                 </div>
 
@@ -168,8 +167,10 @@ const About = () => {
                   <h3>Holistic Growth</h3>
 
                   <p>
-                    Supporting multidimensional development beyond
-                    academics.
+                    To collaborate with schools, parents, corporates, TNE
+                    providers, faculties, teachers, trainers and learning and
+                    development professionals in building an ecosystem that
+                    supports multidimensional growth.
                   </p>
                 </div>
               </div>
@@ -188,10 +189,7 @@ const About = () => {
                   const Icon = item.icon;
 
                   return (
-                    <div
-                      className={styles.principleCard}
-                      key={idx}
-                    >
+                    <div className={styles.principleCard} key={idx}>
                       <div className={styles.cardIcon}>
                         <Icon size={28} />
                       </div>
@@ -202,6 +200,15 @@ const About = () => {
                     </div>
                   );
                 })}
+              </div>
+              <div className={styles.principleCardLast}>
+                <h3>Multidimensional growth as guiding standards</h3>
+                <span>
+                  We drive multidimensional growth by helping students develop
+                  every dimension of themselves - skills, academic, interest,
+                  passion, etc. We thrive for making their educational journey
+                  as transformative as the future they are working towards.
+                </span>
               </div>
             </section>
           </section>

@@ -16,12 +16,12 @@ import {
   Languages,
   MessagesSquare,
   Lightbulb,
-  UsersRound
+  UsersRound,
 } from "lucide-react";
 
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router";
-import hero from "../../../assets/images/hero.jpg";
+import hero from "../../../assets/images/hero-image-removebg-preview.png";
 import Note from "../../component/ui/Note";
 
 const services = [
@@ -33,35 +33,30 @@ const services = [
   {
     icon: GraduationCap,
     title: "Career Coaching for Classes 10, 11 & 12",
-    text: "Building clarity, confidence, and a purposeful career direction including profile building.",
+    text: "building clarity, confidence, and a purposeful career direction  include profile building.",
   },
   {
     icon: BookOpenCheck,
     title: "End-to-End Study Abroad",
-    text: "Complete guidance for admissions, applications, SOPs, visas, and university selection.",
+    text: "End to end support for students exploring global education — from university shortlisting and applications to SOPs, LORs, visas, accommodation, and pre departure.",
   },
 ];
 
 const stats = [
   {
     value: "0",
-    label: "Students mentored",
-    note: "Every number here will grow only when a real student journey is complete.",
+    label: "Stream & Subject Selection (Classes 8–10)",
+    note: "Students enrolled to explore subject combinations and build a strong academic foundation.",
   },
   {
     value: "0",
-    label: "Successful placements",
-    note: "Updated transparently as each career coaching engagement closes.",
+    label: "Career Coaching for Classes 10, 11 & 12",
+    note: "Students guided through career planning, profile building, and future pathway decisions.",
   },
   {
     value: "0",
-    label: "Universities placed into",
-    note: "Counted only after admission letters are in hand.",
-  },
-  {
-    value: "100%",
-    label: "Psychometric-first approach",
-    note: "From day one — this is the one number we start at full.",
+    label: "End-to-End Study Abroad",
+    note: "Students supported through university applications, admissions, and international education planning.",
   },
 ];
 
@@ -108,7 +103,7 @@ const partnershipCards = [
   },
   {
     icon: Lightbulb,
-    tag: " Learning Specialists",
+    tag: "Learning & Development Specialists",
     // line: "Connecting students to global learning opportunities through trusted academic partnerships.",
   },
 ];
@@ -117,17 +112,17 @@ const stories = [
   {
     stage: "Stream Selection",
     title: "Your story could start here.",
-    body: "A student rediscovers a stream that fits how they actually think.",
+    body: "A student rediscovers a stream that fits how they actually think - backed by a psychometric report, not a huch",
   },
   {
     stage: "Career Coaching",
     title: "A career chosen on purpose.",
-    body: "Months of structured coaching turn vague ambitions into real direction.",
+    body: "Months of structured coaching turn vague ambitions into a concrete, evidence-backed career path.",
   },
   {
     stage: "Study Abroad",
     title: "An admit that actually fits.",
-    body: "An offer from a university that matches the student, not the brochure.",
+    body: "Shortlist, applications, SOPs, visa - and and offer from a university that matches the student, not the brochure.",
   },
 ];
 
@@ -135,11 +130,59 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>MGTM Consultancy LLP | Research Driven Career Guidance</title>
+        <title>
+          MGTM Consultancy LLP | Study Abroad & Career Guidance in India
+        </title>
 
         <meta
           name="description"
-          content="MGTM Consultancy LLP offers research-driven stream selection, career coaching and study abroad services."
+          content="MGTM Consultancy LLP provides research-driven career guidance, stream selection, psychometric assessments, profile building, and study abroad counselling to help students make informed decisions."
+        />
+
+        <meta
+          name="keywords"
+          content="study abroad consultant India, career guidance, psychometric assessment, stream selection, career coaching, overseas education consultant, profile building, MGTM Consultancy LLP"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        <meta name="author" content="MGTM Consultancy LLP" />
+
+        <link rel="canonical" href="https://www.mgtmconsultancy.com/" />
+
+        <meta
+          property="og:title"
+          content="MGTM Consultancy LLP | Research-Driven Career Guidance"
+        />
+
+        <meta
+          property="og:description"
+          content="Helping students choose the right stream, build meaningful careers, and navigate study opportunities in India and abroad through evidence-based guidance."
+        />
+
+        <meta
+          property="og:image"
+          content="https://www.mgtmconsultancy.com/og-home.jpg"
+        />
+
+        <meta property="og:url" content="https://www.mgtmconsultancy.com/" />
+
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta
+          name="twitter:title"
+          content="MGTM Consultancy LLP | Research-Driven Career Guidance"
+        />
+
+        <meta
+          name="twitter:description"
+          content="Research-driven career guidance, psychometric assessments, and study abroad counselling."
+        />
+
+        <meta
+          name="twitter:image"
+          content="https://www.mgtmconsultancy.com/og-home.jpg"
         />
       </Helmet>
 
@@ -160,8 +203,10 @@ const Home = () => {
 
               <p className={styles.heroDescription}>
                 MGTM Consultancy LLP guides students in choosing the right
-                stream, developing a meaningful career plan, and navigating
-                study opportunities in India and abroad.
+                stream, developing a meaningful career plan, and building a
+                standout profile, navigating study opportunities in India and
+                abroad — all beginning with a comprehensive psychometric
+                assessment.
               </p>
 
               <div className={styles.heroButtons}>
@@ -195,11 +240,16 @@ const Home = () => {
               <p className={styles.sectionTag}>What we do</p>
 
               <h2 className={styles.sectionTitle}>
-                Various Services. One honest starting point.
+                Various Services. One honest starting point – Psychometric
+                Assessment
               </h2>
 
               <p className={styles.sectionDescription}>
-                Every service starts with a psychometric assessment.
+                Every service — stream selection for Classes 8–10, career
+                coaching for Classes 11–12, and higher‑education guidance in
+                India or abroad for Class 12 and college students — starts with
+                a psychometric assessment. We provide structured guidance across
+                key milestones.
               </p>
             </div>
 
@@ -247,6 +297,9 @@ const Home = () => {
                   <p>{item.note}</p>
                 </div>
               ))}
+              <Link to={`/real-metrics`} className={styles.realMatrics}>
+                View Real Metrics
+              </Link>
             </div>
           </div>
         </section>

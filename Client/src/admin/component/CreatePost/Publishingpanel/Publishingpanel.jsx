@@ -1,25 +1,20 @@
 import styles from "./PublishingPanel.module.css";
 
-const AUTHORS = [
-  "MGTM Team",
-  "Anupam Pandey",
-  "Admin",
-];
+const AUTHORS = ["MGTM Team", "Anupam Pandey", "Admin"];
 
 export default function PublishingPanel({
   status,
   author,
   publishedAt,
   featured,
-
   onStatusChange,
   onAuthorChange,
   onPublishedAtChange,
   onFeaturedChange,
-
   onSave,
   onPreview,
   onDiscard,
+  loading,
 }) {
   return (
     <div className={styles.panel}>
@@ -36,11 +31,7 @@ export default function PublishingPanel({
                 type="checkbox"
                 checked={status === "Published"}
                 onChange={(e) =>
-                  onStatusChange(
-                    e.target.checked
-                      ? "Published"
-                      : "Draft"
-                  )
+                  onStatusChange(e.target.checked ? "Published" : "Draft")
                 }
               />
               <span className={styles.slider} />
@@ -48,9 +39,7 @@ export default function PublishingPanel({
 
             <span
               className={`${styles.statusLabel} ${
-                status === "Published"
-                  ? styles.live
-                  : styles.draft
+                status === "Published" ? styles.live : styles.draft
               }`}
             >
               {status}
@@ -61,11 +50,17 @@ export default function PublishingPanel({
 
       {/* Author */}
       <div className={styles.field}>
-        <label className={styles.fieldLabel}>
-          AUTHOR
-        </label>
+        <label className={styles.fieldLabel}>AUTHOR</label>
 
-        <select
+        <input
+          type="text"
+          placeholder="Authur"
+          name="author"
+          value={author}
+          onChange={(e) => onAuthorChange(e.target.value)}
+          className={styles.authorInput}
+        />
+        {/* <select
           className={styles.select}
           value={author}
           onChange={(e) =>
@@ -77,47 +72,31 @@ export default function PublishingPanel({
               {a}
             </option>
           ))}
-        </select>
+        </select> */}
       </div>
 
       {/* Publish Date */}
       <div className={styles.field}>
-        <label className={styles.fieldLabel}>
-          PUBLISH DATE
-        </label>
+        <label className={styles.fieldLabel}>PUBLISH DATE</label>
 
         <input
           type="date"
           className={styles.dateInput}
-          value={
-            publishedAt
-              ? new Date(publishedAt)
-                  .toISOString()
-                  .split("T")[0]
-              : ""
-          }
-          onChange={(e) =>
-            onPublishedAtChange(e.target.value)
-          }
+          value={ publishedAt }
+          onChange={(e) => onPublishedAtChange(e.target.value)}
         />
       </div>
 
       {/* Featured Blog */}
       <div className={styles.field}>
         <div className={styles.statusRow}>
-          <span className={styles.fieldLabel}>
-            Featured Blog
-          </span>
+          <span className={styles.fieldLabel}>Featured Blog</span>
 
           <label className={styles.toggle}>
             <input
               type="checkbox"
               checked={featured}
-              onChange={(e) =>
-                onFeaturedChange(
-                  e.target.checked
-                )
-              }
+              onChange={(e) => onFeaturedChange(e.target.checked)}
             />
             <span className={styles.slider} />
           </label>
@@ -128,24 +107,17 @@ export default function PublishingPanel({
         className={styles.saveBtn}
         type="button"
         onClick={onSave}
+        disabled={loading}
       >
-        Save Post
+        {loading ? "...loading" : "Save Post"}
       </button>
 
       <div className={styles.actionRow}>
-        <button
-          className={styles.previewBtn}
-          type="button"
-          onClick={onPreview}
-        >
+        {/* <button className={styles.previewBtn} type="button" onClick={onPreview}>
           Preview
-        </button>
+        </button> */}
 
-        <button
-          className={styles.discardBtn}
-          type="button"
-          onClick={onDiscard}
-        >
+        <button className={styles.discardBtn} type="button" onClick={onDiscard}>
           Discard
         </button>
       </div>

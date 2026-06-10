@@ -1,0 +1,101 @@
+:root {
+  --navy: #0d1b3e;
+  --beige: #eae7df;
+  --white: #ffffff;
+  --dark: #111827;
+  --mid: #374151;
+  --light: #6b7280;
+  --border: #e5e7eb;
+}
+
+
+
+.hero {
+  background: var(--white);
+  /* padding: clamp(48px, 7vw, 80px) clamp(24px, 8vw, 120px); */
+}
+
+.heroTitle {
+  color: var(--navy);
+  font-size: clamp(1.55rem, 3.5vw, 2.5rem);
+  margin-bottom: 16px;
+}
+
+.heroDesc {
+  color: var(--light);
+  line-height: 1.75;
+  max-width: 620px;
+}
+
+.contentWrap {
+  padding: clamp(48px, 7vw, 80px) 0;
+}
+
+.policySection {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.policySection:last-child {
+  border-bottom: none;
+}
+
+.sectionNum {
+  font-size: 0.68rem;
+  color: var(--light);
+  letter-spacing: 0.2em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.policySection h2 {
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.policySection p {
+  color: var(--mid);
+  line-height: 1.8;
+}
+
+.policyList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.policyList li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--mid);
+  line-height: 1.8;
+}
+
+.policyList li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--navy);
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+@media (max-width: 580px) {
+  /* .hero,
+  .contentWrap {
+    padding: 36px 20px;
+  } */
+
+  .nav {
+    padding: 0 16px;
+  }
+
+ 
+}

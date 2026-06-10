@@ -41,7 +41,7 @@ export const AdminAuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      const res = await api.post("/logout"); // clears cookie backend
+      const res = await api.post("/api/admin/logout"); // clears cookie backend
       handleSuccess(res.data.message);
     } catch (err) {
       console.log("Logout error:", err);

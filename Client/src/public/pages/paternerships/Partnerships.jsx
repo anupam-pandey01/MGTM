@@ -9,6 +9,7 @@ import {
   Users,
   Sparkles,
 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const helpStudents = [
   {
@@ -132,127 +133,207 @@ function Card({ item }) {
       <h3>{item.title}</h3>
 
       <p>{item.body}</p>
-
-      {/* <ul>
-        {item.perks.map((perk) => (
-          <li key={perk}>
-            <Sparkles size={14} />
-            {perk}
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 }
 
 export default function Partnerships() {
   return (
-    <div className={styles.partnershipsPage}>
-      {/* HERO */}
-      <section className={`${styles.partnershipsHero} container section`}>
-        <div className={styles.partnershipsContainer}>
-          <p className={styles.sectionLabel}>PARTNERSHIPS</p>
+    <>
+      <Helmet>
+        <title>
+          Partnerships | Schools, Colleges & Education Collaborations | MGTM
+          Consultancy LLP
+        </title>
 
-          <h1>
-            Partners who help students discover direction — and build profiles
-            that go further.
-          </h1>
+        <meta
+          name="description"
+          content="Partner with MGTM Consultancy LLP to create better student outcomes through research-driven career guidance. We collaborate with schools, colleges, universities, psychologists, trainers, and education providers."
+        />
 
-          <p className={styles.heroText}>
-            Our partnerships exist for one reason: better student outcomes.
-            Schools and colleges help us reach students early and guide them
-            well. Certification providers, universities and TNE partners help
-            those same students build credible, globally-relevant profiles —
-            research-led, never sales-led.
-          </p>
-        </div>
-      </section>
+        <meta
+          name="keywords"
+          content="education partnerships India, school partnerships, university partnerships, career guidance collaborations, study abroad partnerships, psychologists for students, education ecosystem"
+        />
 
-      {/* CONTENT */}
-      <section className={styles.partnershipsContent}>
-        <div className={`${styles.partnershipsContainer} container section`}>
-          {/* SECTION 1 */}
-          <div className={styles.groupBlock}>
-            <p className={styles.chapter}>REACHING STUDENTS</p>
+        <meta name="robots" content="index, follow, max-image-preview:large" />
 
-            <h2>Helping students, with schools & colleges.</h2>
+        <meta name="author" content="MGTM Consultancy LLP" />
 
-            <p className={styles.groupText}>
-              The earliest, most honest conversations happen inside classrooms.
-              We partner with institutions to bring research-driven guidance to
-              where students already are.
+        <link
+          rel="canonical"
+          href="https://www.mgtmconsultancy.com/partnerships"
+        />
+
+        <meta
+          property="og:title"
+          content="Partnerships | MGTM Consultancy LLP"
+        />
+
+        <meta
+          property="og:description"
+          content="Building an ecosystem of schools, colleges, universities, psychologists, trainers, and education partners focused on student growth and informed decision making."
+        />
+
+        <meta
+          property="og:url"
+          content="https://www.mgtmconsultancy.com/partnerships"
+        />
+
+        <meta
+          property="og:image"
+          content="https://www.mgtmconsultancy.com/og-partnerships.jpg"
+        />
+
+        <meta
+          property="og:image:alt"
+          content="MGTM Consultancy LLP Education Partnerships"
+        />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:site_name" content="MGTM Consultancy LLP" />
+
+        <meta property="og:locale" content="en_IN" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta
+          name="twitter:title"
+          content="Education Partnerships | MGTM Consultancy LLP"
+        />
+
+        <meta
+          name="twitter:description"
+          content="Collaborating with institutions and experts to create better outcomes for students."
+        />
+
+        <meta
+          name="twitter:image"
+          content="https://www.mgtmconsultancy.com/og-partnerships.jpg"
+        />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            name: "MGTM Consultancy LLP",
+            url: "https://www.mgtmconsultancy.com",
+            description:
+              "Research-driven education consultancy building partnerships that improve student outcomes.",
+            knowsAbout: [
+              "Career Guidance",
+              "Study Abroad",
+              "School Partnerships",
+              "University Collaborations",
+              "Student Development",
+            ],
+            areaServed: "India",
+          })}
+        </script>
+      </Helmet>
+
+      <div className={styles.partnershipsPage}>
+        <section className={`${styles.partnershipsHero} container section`}>
+          <div className={styles.partnershipsContainer}>
+            <p className={styles.sectionLabel}>PARTNERSHIPS</p>
+
+            <h1>
+              Partners who help students discover direction — and build profiles
+              that go further.
+            </h1>
+
+            <p className={styles.heroText}>
+              Our partnerships exist for one reason: better student outcomes.
+              Schools and colleges help us reach students early and guide them
+              well. Certification providers, universities and TNE partners help
+              those same students build credible, globally-relevant profiles —
+              research-led, never sales-led.
             </p>
-
-            <div className={styles.cardsGrid}>
-              {helpStudents.map((item) => (
-                <Card key={item.title} item={item} />
-              ))}
-            </div>
           </div>
+        </section>
 
-          <div className="">
-            <div className={styles.psychologistsCard}>
-              <div className={styles.psychologistsTag}>
-                {/* <Icon size={15} /> */}
-                <span>Psychologists</span>
+        {/* CONTENT */}
+        <section className={styles.partnershipsContent}>
+          <div className={`${styles.partnershipsContainer} container section`}>
+            {/* SECTION 1 */}
+            <div className={styles.groupBlock}>
+              <p className={styles.chapter}>REACHING STUDENTS</p>
+
+              <h2>Helping students, with schools & colleges.</h2>
+
+              <p className={styles.groupText}>
+                The earliest, most honest conversations happen inside
+                classrooms. We partner with institutions to bring
+                research-driven guidance to where students already are.
+              </p>
+
+              <div className={styles.cardsGrid}>
+                {helpStudents.map((item) => (
+                  <Card key={item.title} item={item} />
+                ))}
+              </div>
+            </div>
+
+            <div className="">
+              <div className={styles.psychologistsCard}>
+                <div className={styles.psychologistsTag}>
+                  {/* <Icon size={15} /> */}
+                  <span>Psychologists</span>
+                </div>
+
+                <h3>
+                  Integrating psychological insights to support student well
+                  being, decision making, and emotional resilience.
+                </h3>
+
+                <p>
+                  Teenagers today are navigating pressure, comparison,
+                  confusion, and constant noise—often without the emotional
+                  tools to understand what they truly want. Psychologists bring
+                  a safe, non judgmental space where students can slow down,
+                  breathe, and make sense of themselves.
+                </p>
+
+                <h3>They help teens mangage</h3>
+                <ul>
+                  <li>Academic stress and performance pressure.</li>
+                  <li>Identity confusion and self doubt.</li>
+                  <li>Anxiety around choices, future, and expectations.</li>
+                  <li>Family, peer, and social media influences.</li>
+                  <li>
+                    Emotional blocks that affect learning and decision making.
+                  </li>
+                </ul>
+                <p>
+                  Psychologists become the emotional backbone of the
+                  ecosystem—helping teenagers feel seen, heard, understood, and
+                  supported at a stage where even small decisions feel
+                  overwhelming.
+                </p>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className={styles.partnershipCta}>
+              <div className={styles.ctaTop}>
+                <Users size={18} />
+
+                <h3>A community, not a funnel.</h3>
               </div>
 
-              <h3>Integrating psychological insights to support student well being, decision making, and emotional resilience.</h3>
+              <p>
+                Every partner — school, college, certification body, university
+                or TNE provider — is evaluated on one question: does this help
+                the student? Incentives never outrank evidence. If it doesn't
+                help a student make a better decision, it doesn't ship.
+              </p>
 
-              <p>Teenagers today are navigating pressure, comparison, confusion, and constant noise—often without the emotional tools to understand what they truly want. Psychologists bring a safe, non judgmental space where students can slow down, breathe, and make sense of themselves.</p>
-
-              <h3>They help teens mangage</h3>
-              <ul>
-                <li>Academic stress and performance pressure</li>
-                <li>Identity confusion and self doubt</li>
-                <li>Identity confusion and self doubt</li>
-                <li>Identity confusion and self doubt</li>
-                <li>Identity confusion and self doubt</li>
-              </ul>
+              <Link to="/contact">Start a partnership conversation</Link>
             </div>
           </div>
-          {/* SECTION 2 */}
-          {/* <div className={styles.groupBlock}>
-            <p className={styles.chapter}>
-              02 — BUILDING PROFILES
-            </p>
-
-            <h2>
-              Credentials, universities & global pathways.
-            </h2>
-
-            <p className={styles.groupText}>
-              A great profile isn't built by accident. We work with certification
-              providers, universities and TNE partners so students can add depth,
-              credibility and global breadth to their journey.
-            </p>
-
-            <div className={styles.cardsGrid}>
-              {buildProfiles.map((item) => (
-                <Card key={item.title} item={item} />
-              ))}
-            </div>
-          </div> */}
-
-          {/* CTA */}
-          <div className={styles.partnershipCta}>
-            <div className={styles.ctaTop}>
-              <Users size={18} />
-
-              <h3>A community, not a funnel.</h3>
-            </div>
-
-            <p>
-              Every partner — school, college, certification body, university or
-              TNE provider — is evaluated on one question: does this help the
-              student? Incentives never outrank evidence. If it doesn't help a
-              student make a better decision, it doesn't ship.
-            </p>
-
-            <Link to="/contact">Start a partnership conversation</Link>
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 }

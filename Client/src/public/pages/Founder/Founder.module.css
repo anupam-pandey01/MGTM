@@ -3,12 +3,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(24px, 5vw, 72px);
+  gap: clamp(24px, 5vw, 80px);
   padding: clamp(48px, 7vw, 88px) clamp(24px, 8vw, 120px);
   /* min-height: 400px; */
 }
+.founderEyeBrow{
+  color: var(--dark-brown);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
 .heroContent {
   flex: 1;
+  min-width: 0;
+  text-align: justify;
 }
 .heroWrapper{
   display: flex;
@@ -39,6 +48,26 @@
 .heroPhotoWrap {
   position: relative;
   flex-shrink: 0;
+  width: min(100%, 320px);
+}
+.heroPhotoWrap{
+  width: 250px ;
+  height: 400px ;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #778;
+  border-radius: 2px;
+}
+.heroPhotoWrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid black;
+  object-fit: cover;
 }
 .photoPlaceholder {
   width: clamp(200px, 26vw, 320px);
@@ -92,7 +121,7 @@
   display: flex;
   gap: clamp(32px, 7vw, 90px);
   align-items: flex-start;
-  /* padding: clamp(52px, 7vw, 88px) clamp(24px, 8vw, 120px); */
+  padding: 50px 0px;
   background: var(--light-brown);
 }
 .quoteCol {
@@ -129,7 +158,7 @@
 
 /* ── PHILOSOPHY ── */
 .philosophy {
-  background: var(--white);
+  background: var(--white); 
   /* padding: clamp(52px, 7vw, 88px) clamp(24px, 8vw, 120px); */
   text-align: center;
 }
@@ -158,7 +187,18 @@
   border-radius: 8px;
   padding: 30px 26px;
 }
-.philCard:hover {
+.founderPhilosophy{
+  display: flex;
+  gap: 100px;
+  align-items: center;
+}
+.founderPhilosophy p{
+  line-height: 2;
+  text-align: justify;
+  /* font-size: 18px; */
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+/* .philCard:hover {
   border:1px solid var(--card-border);
   cursor: pointer;
 }
@@ -191,106 +231,7 @@
   font-size: 0.875rem;
   color: var(--light);
   line-height: 1.72;
-}
-
-/* ── JOURNEY ── */
-.journey {
-  display: flex;
-  gap: clamp(32px, 7vw, 90px);
-  align-items: flex-start;
-  /* padding: clamp(52px, 7vw, 88px) clamp(24px, 8vw, 120px); */
-  background: var(--white);
-  background-color: var(--light-brown);
-}
-.jLeft {
-  flex: 0 0 clamp(160px, 26%, 280px);
-}
-.jHeading {
-  font-family: var(--serif);
-  font-size: clamp(1.35rem, 3vw, 1.9rem);
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: 10px;
-}
-.jDivider {
-  width: 36px;
-  height: 3px;
-  background: var(--primary-color);
-  margin-bottom: 18px;
-}
-.jSub {
-  font-size: 0.875rem;
-  color: var(--light);
-  line-height: 1.72;
-}
-.jRight {
-  flex: 1;
-}
-.jItem {
-  display: flex;
-  gap: 0;
-  margin-bottom: 0;
-}
-.jMetaCol {
-  width: 70px;
-  flex-shrink: 0;
-  text-align: right;
-  padding-right: 20px;
-  padding-top: 3px;
-}
-.jMetaText {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--light);
-  letter-spacing: 0.03em;
-}
-.jLineCol {
-  width: 20px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.jDot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--primary-color);
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 2px var(--primary-color);
-  flex-shrink: 0;
-  margin-top: 4px;
-}
-.jLine {
-  flex: 1;
-  width: 1.5px;
-  background: var(--border);
-  margin-top: 4px;
-  margin-bottom: 0;
-  min-height: 32px;
-}
-.jItem:last-child .jLine {
-  display: none;
-}
-.jBody {
-  flex: 1;
-  padding-left: 20px;
-  padding-bottom: 32px;
-}
-.jItem:last-child .jBody {
-  padding-bottom: 0;
-}
-.jTitle {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: 8px;
-}
-.jDesc {
-  font-size: 0.875rem;
-  color: var(--light);
-  line-height: 1.72;
-}
+} */
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -314,18 +255,20 @@
     flex-direction: column;
     padding: 40px clamp(20px, 5vw, 60px);
   }
-  .quoteCol {
-    flex: unset;
-    max-width: 100%;
-  }
-  .journey {
-    flex-direction: column;
-    padding: 40px clamp(20px, 5vw, 60px);
-  }
-  .jLeft {
-    flex: unset;
-    max-width: 100%;
-  }
+  .storyWrapper{
+  display: flex;
+  gap: clamp(32px, 7vw, 90px);
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 50px 0px;
+  background: var(--light-brown);
+}
+.founderPhilosophy{
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  align-items: center;
+}
 }
 @media (max-width: 580px) {
   .hero {
@@ -367,5 +310,126 @@
   .footerInner {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* ================= HERO RESPONSIVE ================= */
+
+/* Tablet */
+/* ================= HERO RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hero {
+    padding: 50px 0;
+  }
+
+  .heroWrapper {
+    flex-direction: column-reverse;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .heroContent {
+    width: 100%;
+    text-align: left;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroMission {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .heroPhotoWrap {
+    width: 300px;
+    height: auto;
+  }
+
+  .heroPhotoWrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 0;
+  }
+
+  .heroWrapper {
+    gap: 30px;
+  }
+
+  .heroTitle {
+    font-size: 1.7rem;
+    line-height: 1.35;
+  }
+
+  .heroMission {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    text-align: justify;
+  }
+
+  .heroPhotoWrap {
+    width: 250px;
+  }
+
+  .founderBadge {
+    padding: 12px 15px;
+  }
+
+  .founderBadge strong {
+    font-size: 0.9rem;
+  }
+
+  .founderBadge span {
+    font-size: 0.7rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero {
+    padding: 30px 0;
+  }
+
+  .heroWrapper {
+    gap: 25px;
+  }
+
+  .heroTitle {
+    font-size: 1.4rem;
+  }
+
+  .heroEyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+  }
+
+  .heroMission {
+    font-size: 0.85rem;
+  }
+
+  .heroPhotoWrap {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .heroPhotoWrap img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .founderBadge {
+    padding: 10px 14px;
   }
 }

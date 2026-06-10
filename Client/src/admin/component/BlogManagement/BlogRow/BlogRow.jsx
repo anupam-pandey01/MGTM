@@ -2,11 +2,11 @@ import { Pencil, Trash, Eye } from "lucide-react";
 import styles from "./BlogRow.module.css"
 import { Link } from "react-router";
 
-const BlogRow = ({ blog }) => {
+const BlogRow = ({ blog, handleDelete }) => {
   return (
     <tr>
       <td className={styles.imgWrapper}>
-        <img src={blog.featuredImage.url} alt="blog-img" /> {blog.title}
+        <img src={blog?.featuredImage?.url} alt="blog-img" /> {blog.title}
       </td>
       <td className={styles.tableFont}>{blog.author}</td>
       <td className={styles.tableFont}>{blog.category}</td>
@@ -23,7 +23,7 @@ const BlogRow = ({ blog }) => {
             <Pencil />
           </Link>
 
-          <div className="icon">
+          <div className="icon" onClick={()=> handleDelete(blog._id)}>
             <Trash />
           </div>
         </div>

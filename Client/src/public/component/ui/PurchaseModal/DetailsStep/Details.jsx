@@ -8,18 +8,19 @@ import {
   validateRequired,
 } from "../../../../../utils/validation/formValidation";
 import { saveUser } from "../../../../../services/publicServices/userApi";
-import { handleError } from "../../../../../utils/handler";
+import { handleError, handleSuccess } from "../../../../../utils/handler";
 
 const Details = ({
   setFormData,
   formData,
   setStep,
-  servicePrice,
+  totalAmount,
+  price,
   serviceId,
   productId,
   setUserId,
   setPurchaseId,
-  setPaymentMessage
+  setPaymentMessage,
 }) => {
   const [errors, setErrors] = useState({});
 
@@ -64,14 +65,21 @@ const Details = ({
         ...formData,
         service: serviceId,
         product: productId,
-        amount: servicePrice,
+        amount: totalAmount,
       };
 
       const data = await saveUser(userData);
-      setUserId(data.userId);
-      setPurchaseId(data.purchaseId);
+      if (data.success) {
+        setUserId(data.userId);
+        setPurchaseId(data.purchaseId);
+        handleSuccess(data.message)
+      }else{
+        handleError(data.message)
+      }
 
-      if (servicePrice === 0) {
+      console.log(data);
+
+      if (totalAmount === 0) {
         setPaymentMessage({
           success: true,
           message: {
@@ -92,8 +100,6 @@ const Details = ({
   return (
     <div className={styles.stepBox}>
       <h2>Enter Your Details</h2>
-
-      {/* NAME */}
 
       <label>Name</label>
       <input

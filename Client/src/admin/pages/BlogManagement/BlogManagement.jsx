@@ -6,13 +6,38 @@ import Stats from "../../component/Common/StatsCard/Stats";
 import styles from "./BlogManagement.module.css";
 import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
-import { AllBlog } from "../../../services/adminServices/adminApi";
+import { AllBlog, deleteBlog } from "../../../services/adminServices/adminApi";
 import BlogRow from "../../component/BlogManagement/BlogRow/BlogRow";
 import Pagination from "../../component/Common/Pagination/Pagination";
+import { handleError, handleSuccess } from "../../../utils/handler";
 
 export default function BlogManagement() {
   const [blogData, setBlogData] = useState([]);
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1);
+
+
+const handleDelete = async (id) => {
+  const confirmed = window.confirm(
+    "Are you sure you want to delete this blog?"
+  );
+
+  if (!confirmed) return;
+
+  try {
+    const res = await deleteBlog(id);
+
+    if (res.success){
+      const data = await AllBlog(page);
+      setBlogData(data);
+      handleSuccess(res.message);
+    }else{
+      handleError(res.message)
+    }
+  } catch (error) {
+    console.error(error.response.data.message);
+    handleError(error.response.data.message);
+  }
+};
 
   useEffect(() => {
     async function getAllBlogs() {
@@ -77,7 +102,7 @@ export default function BlogManagement() {
           ]}
           data={blogData.blogs || []}
           renderRow={(blog, index) => (
-            <BlogRow blog={blog} key={index}/>
+            <BlogRow blog={blog} key={index} handleDelete={handleDelete}/>
           )}
         />
         <div className={styles.tableFooter}>

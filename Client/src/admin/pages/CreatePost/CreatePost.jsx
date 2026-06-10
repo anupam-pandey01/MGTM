@@ -10,8 +10,10 @@ import SEOSettings from "../../component/CreatePost/SEOSettings/SEOSettings";
 import {
   createBlog,
   getBlogById,
+  updateBlog,
 } from "../../../services/adminServices/adminApi";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { handleError, handleSuccess } from "../../../utils/handler";
 
 const initialState = {
   title: "",
@@ -34,7 +36,7 @@ const initialState = {
 
   status: "Draft",
 
-  publishedAt: "",
+  publishedAt: new Date().toISOString().split("T")[0],
 
   featured: false,
 };
@@ -43,6 +45,8 @@ export default function CreatePost() {
   const [post, setPost] = useState(initialState);
   const [saved, setSaved] = useState(false);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const { id } = useParams();
   const isEdit = !!id;
@@ -60,10 +64,11 @@ export default function CreatePost() {
     const fetchBlog = async () => {
       const res = await getBlogById(id);
 
-      console.log(res);
-
       setPost({
         ...res.blog,
+        publishedAt: res.publishedAt
+          ? new Date(res.publishedAt).toISOString().split("T")[0]
+          : new Date().toISOString().split("T")[0],
         featuredImage: {
           url: res.blog.featuredImage?.url,
         },
@@ -97,6 +102,7 @@ export default function CreatePost() {
     setErrors({});
 
     try {
+      setLoading(true);
       const formData = new FormData();
 
       formData.append("title", post.title);
@@ -106,23 +112,39 @@ export default function CreatePost() {
       formData.append("category", post.category);
       formData.append("author", post.author);
       formData.append("status", post.status);
+      formData.append("publishedAt", post.publishedAt);
       formData.append("featured", post.featured);
 
       formData.append("seoTitle", post.seoTitle);
       formData.append("seoDescription", post.seoDescription);
       formData.append("seoKeywords", JSON.stringify(post.seoKeywords));
+      formData.append("tags", JSON.stringify(post.tags));
 
       if (post.featuredImage?.file) {
         formData.append("featuredImage", post.featuredImage.file);
       }
 
-      const res = await createBlog(formData);
+      let res;
 
-      console.log("Saved:", res);
+      if (isEdit) {
+        res = await updateBlog(id, formData);
+      } else {
+        res = await createBlog(formData);
+      }
 
-      setSaved(true);
+      if (res.success) {
+        handleSuccess(
+          isEdit ? "Blog updated successfully" : "Blog created successfully",
+        );
+
+        setSaved(true);
+        navigate("/admin/blogs");
+      }
     } catch (err) {
-      console.error(err);
+      console.error(err.response.data.message);
+      handleError(err?.response?.data?.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -136,9 +158,6 @@ export default function CreatePost() {
     <div className={styles.page}>
       <div className={styles.topBar}>
         <h1 className={styles.pageTitle}>Create Post</h1>
-        {saved && (
-          <span className={styles.savedBadge}>✓ Saved successfully</span>
-        )}
       </div>
 
       <div className={styles.layout}>
@@ -173,7 +192,9 @@ export default function CreatePost() {
               image={post.featuredImage}
               onChange={(val) => update("featuredImage", val)}
             />
-            {errors.featuredImage && <p className={styles.error}>{errors.featuredImage}</p>}
+            {errors.featuredImage && (
+              <p className={styles.error}>{errors.featuredImage}</p>
+            )}
           </div>
         </div>
 
@@ -191,6 +212,7 @@ export default function CreatePost() {
             onSave={handleSave}
             onPreview={() => alert("Preview mode")}
             onDiscard={handleDiscard}
+            loading={loading}
           />
 
           <ClassificationPanel
@@ -208,7 +230,6 @@ export default function CreatePost() {
             onSeoDescriptionChange={(value) => update("seoDescription", value)}
             onSeoKeywordsChange={(value) => update("seoKeywords", value)}
           />
-          
         </div>
       </div>
     </div>

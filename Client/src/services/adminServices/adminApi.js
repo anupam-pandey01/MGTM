@@ -79,3 +79,29 @@ export const getBlogById = async (id)=>{
 
   return res.data;
 }
+
+export const deleteBlog = async (id) => {
+  const response = await api.delete(`/api/admin/blog/${id}`);
+
+  return response.data;
+};
+
+export const updateBlog = async (id, data) => {
+  const response = await api.put(`api/admin/blog/${id}`, data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  return response.data;
+};
+
+export const getContact = async()=>{
+    try{
+        const res = await api.get("/message");
+
+        return res.data
+    }catch(err){
+        throw err.response.data.message
+    }
+}

@@ -1,8 +1,18 @@
+.amountContainer{
+   /* padding: 20px 0; */
+   border: 1px solid rgb(201, 196, 196);
+   margin-bottom: 30px;
+   border-radius: 2px;
+}
 .amount{
-   margin-bottom: 20px;
-
    font-size: 18px;
-   font-weight: 600;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   /* font-weight: 600; */
+   padding: 10px 20px;
+   font-size: 15px;
+   border: 1px solid rgb(201, 196, 196);
 }
 .amount p{
     color: var(--primary-color);
@@ -10,9 +20,16 @@
 .amount h2{
     color: var(--primary-color);
 }
+
 .stepBox{
    display: flex;
    flex-direction: column;
+}
+.payment h2{
+   font-family: "Inter", Arial, Helvetica, sans-serif;
+   /* font-weight: 650; */
+   font-size: 22px;
+   margin-bottom: 20px;
 }
 .primaryBtn{
    width: 100%;
