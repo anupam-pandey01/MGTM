@@ -2,8 +2,7 @@ const Razorpay = require("razorpay");
 const crypto = require("crypto");
 const User = require("../models/user");
 const Purchase = require("../models/purchase");
-
-require("dotenv").config();
+const transporter = require("../config/email.config");
 
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_API_KEY,
@@ -49,7 +48,6 @@ exports.createOrder = async (req, res) => {
     await purchase.save();
 
     return res.status(200).json(order);
-
   } catch (error) {
     console.log(error);
 
@@ -84,7 +82,7 @@ exports.verifyPayment = async (req, res) => {
 
     const purchase = await Purchase.findOne({
       razorpayOrderId: razorpay_order_id,
-    });
+    }).populate("user")
 
     if (!purchase) {
       return res.status(404).json({
@@ -98,6 +96,31 @@ exports.verifyPayment = async (req, res) => {
     purchase.razorpayPaymentId = razorpay_payment_id;
 
     await purchase.save();
+
+    try {
+      await transporter.sendMail({
+        from: `"MGTM Consultancy" <${process.env.EMAIL_USER}>`,
+        to: purchase?.user?.email,
+        subject: "Payment Confirmation",
+        html: `
+        <h2>Payment Successful 🎉</h2>
+        <p>Dear ${purchase.user.name},</p>
+
+        <p>Thank you for enrolling with MGTM Consultancy.</p>
+
+        <p>We have successfully received your payment.</p>
+
+        <p><strong>Payment ID:</strong> ${razorpay_payment_id}</p>
+        <p><strong>Amount:</strong> ₹${purchase.amount}</p>
+
+        <p>Our team will contact you shortly with the next steps.</p>
+
+        <p>Regards,<br/>MGTM Consultancy</p>
+      `,
+      });
+    } catch (emailError) {
+      console.error("Email sending failed:", emailError);
+    }
 
     return res.status(200).json({
       success: true,

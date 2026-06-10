@@ -1,8 +1,11 @@
 import { Pencil, Trash, Eye } from "lucide-react";
 import styles from "./BlogRow.module.css"
 import { Link } from "react-router";
+import { useState } from "react";
 
 const BlogRow = ({ blog, handleDelete }) => {
+  const [loading, setLoading] = useState(false);
+
   return (
     <tr>
       <td className={styles.imgWrapper}>
@@ -15,16 +18,19 @@ const BlogRow = ({ blog, handleDelete }) => {
 
       <td>
         <div className="action-btn-icon">
-          <div className="icon">
+          <Link className="icon" to={`/blog/${blog?.slug}`}>
             <Eye />
-          </div>
+          </Link>
 
           <Link className="icon" to={`/admin/blogs/${blog._id}`}>
             <Pencil />
           </Link>
 
-          <div className="icon" onClick={()=> handleDelete(blog._id)}>
-            <Trash />
+          <div className="icon" onClick={()=>{
+            if(loading) return;  
+            handleDelete(blog._id, setLoading);
+          }}>
+            {loading ? <strong>...</strong> : <Trash />}
           </div>
         </div>
       </td>

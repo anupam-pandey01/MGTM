@@ -14,7 +14,6 @@ const Services = () => {
     async function services() {
       try {
         const data = await getAllServices();
-        console.log(data.services)
 
         setServicesData(data.services);
       } catch (err) {

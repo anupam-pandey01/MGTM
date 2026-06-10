@@ -26,7 +26,7 @@ const BlogGrid = ({ posts = [], loading = true, error = null }) => {
 
   return (
     <div className={styles.grid}>
-      {posts.map((post) => <BlogCard key={post.id} post={post} />)}
+      {posts.map((post) => <BlogCard key={post._id} post={post} />)}
     </div>
   );
 };

@@ -16,7 +16,8 @@ export default function BlogManagement() {
   const [page, setPage] = useState(1);
 
 
-const handleDelete = async (id) => {
+const handleDelete = async (id, setLoading) => {
+ 
   const confirmed = window.confirm(
     "Are you sure you want to delete this blog?"
   );
@@ -24,6 +25,7 @@ const handleDelete = async (id) => {
   if (!confirmed) return;
 
   try {
+    setLoading(true);
     const res = await deleteBlog(id);
 
     if (res.success){
@@ -31,11 +33,13 @@ const handleDelete = async (id) => {
       setBlogData(data);
       handleSuccess(res.message);
     }else{
-      handleError(res.message)
+      handleError(res.message);
     }
   } catch (error) {
     console.error(error.response.data.message);
     handleError(error.response.data.message);
+  }finally{
+    setLoading(false);  
   }
 };
 

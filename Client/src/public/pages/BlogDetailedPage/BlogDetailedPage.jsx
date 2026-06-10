@@ -1,16 +1,10 @@
-// import ArticleHero from '../components/ArticleHero/ArticleHero';
-// import ArticleBody from '../components/ArticleBody/ArticleBody';
-// import ArticleTags from '../components/ArticleTags/ArticleTags';
-// import RelatedInsights from '../components/RelatedInsights/RelatedInsights';
 import { useEffect, useState } from "react";
 import ArticleBody from "../../component/ui/BlogDetailedPage/Articlebody/Articlebody";
 import ArticleHero from "../../component/ui/BlogDetailedPage/Articlehero/Articlehero";
 import ArticleTags from "../../component/ui/BlogDetailedPage/Articletags/Articletags";
-// import ArticleBody from '../../component/ui/BlogDetailedPage/Articletags/Articletags';
 import RelatedInsights from "../../component/ui/BlogDetailedPage/Relatedinsights/Relatedinsights";
 import styles from "./BlogDetailedPage.module.css";
 import { useParams } from "react-router";
-// import { getBlogBySlug } from '../../../../../Server/controllers/publicBlogController';
 import { handleError } from "../../../utils/handler";
 import { blogBySlug } from "../../../services/publicServices/blogApi";
 import { Helmet } from "react-helmet-async";
@@ -24,7 +18,7 @@ const BlogDetailPage = () => {
     async function slugBlog() {
       try {
         const data = await blogBySlug(slug);
-        console.log(data);
+
         setPost(data.blog);
         setRelatedPosts(data.relatedBlogs);
       } catch (err) {
@@ -63,7 +57,6 @@ const BlogDetailPage = () => {
   return (
     <>
       <Helmet>
-        {/* Primary SEO */}
         <title>
           {title
             ? `${title} | MGTM Consultancy LLP`

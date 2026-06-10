@@ -1,0 +1,88 @@
+
+.hero {
+  background: var(--white);
+}
+
+.heroTitle {
+  font-size: clamp(1.55rem, 3.5vw, 2.5rem);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.heroDesc {
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 620px;
+}
+
+.contentWrap {
+  padding: clamp(48px, 7vw, 80px) 0;
+}
+
+.policySection {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.policySection:last-child {
+  border-bottom: none;
+}
+
+.sectionNum {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 10px;
+}
+
+.policySection h2 {
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.policySection p {
+  color: var(--mid);
+  line-height: 1.8;
+}
+
+.policyList {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.policyList li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+.policyList li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--navy);
+  font-weight: bold;
+}
+
+.note {
+  margin-top: 40px;
+  padding: 18px 22px;
+  background: var(--beige2);
+  border-left: 3px solid var(--navy);
+  color: var(--light);
+  line-height: 1.7;
+}
+
+@media (max-width: 580px) {
+  .hero {
+    padding: 36px 20px;
+  }
+
+  .contentWrap {
+    padding: 36px 20px;
+  }
+}

@@ -25,7 +25,7 @@ const RelatedInsights = ({ posts = [] }) => {
 
         <div className={styles.grid}>
           {posts.slice(0, 3).map((post) => (
-            <RelatedCard key={post.id} post={post} />
+            <RelatedCard key={post._id} post={post} />
           ))}
         </div>
       </div>
