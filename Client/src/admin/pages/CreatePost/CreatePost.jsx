@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import styles from "./CreatePost.module.css";
 import { validateBlog } from "../../../utils/validation/blogValidation";
-import PostTitleInput from "../../component/CreatePost/Posttitleinput/PosttitleInput";
+import PostTitleInput from "../../component/CreatePost/PostTitleInput/PostTitleInput";
 import ContentEditor from "../../component/CreatePost/ContentEditor/ContentEditor";
 import FeaturedImage from "../../component/CreatePost/FeaturedImage/FeaturedImage";
 import PublishingPanel from "../../component/CreatePost/PublishingPanel/PublishingPanel";
 import ClassificationPanel from "../../component/CreatePost/ClassificationPanel/ClassificationPanel";
-import SEOSettings from "../../component/CreatePost/SeoSettings/SeoSettings.jsx";
+import SeoSettings from "../../component/CreatePost/SeoSettings/SeoSetting";
 import {
   createBlog,
   getBlogById,
@@ -40,13 +40,6 @@ const initialState = {
 
   featured: false,
 };
-
-// ── Helper: always return a proper array from whatever the API gives back ──────
-// API may return tags as:
-//   - already an array: ["tag1", "tag2"]          → use as-is
-//   - comma string:     "tag1,tag2"               → split
-//   - empty string:     ""                        → []
-//   - undefined/null                              → []
 function normalizeArray(val) {
   if (!val) return [];
   if (Array.isArray(val)) return val.filter(Boolean);
@@ -86,7 +79,7 @@ export default function CreatePost() {
         featuredImage: {
           url: res.blog.featuredImage?.url,
         },
-        // ── Normalize tags and seoKeywords to always be arrays ──
+        
         tags: normalizeArray(res.blog.tags),
         seoKeywords: normalizeArray(res.blog.seoKeywords),
       });
@@ -234,7 +227,7 @@ export default function CreatePost() {
             onTagsChange={(value) => update("tags", value)}
           />
 
-          <SEOSettings
+          <SeoSettings
             seoTitle={post.seoTitle}
             seoDescription={post.seoDescription}
             seoKeywords={post.seoKeywords}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./SeoSettings.module.css";
 
-export default function SEOSettings({
+export default function SeoSettings({
   seoTitle,
   seoDescription,
   seoKeywords,

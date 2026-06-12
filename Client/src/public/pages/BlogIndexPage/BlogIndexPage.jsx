@@ -1,10 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
-import styles from "./Blogindexpage.module.css";
-
+import styles from "./BlogIndexPage.module.css";
 import PageHeroSection from "../../component/ui/PageHeroSection/PageHeroSection";
 import FilterTabs from "../../component/ui/BlogIndexPage/FilterTabs/FilterTabs";
-import BlogGrid from "../../component/ui/BlogIndexPage/Bloggrid/Bloggrid";
+import BlogGrid from "../../component/ui/BlogIndexPage/BlogGrid/BlogGrid";
 import Pagination from "../../component/ui/BlogIndexPage/Pagination/Pagination";
 
 import { handleError } from "../../../utils/handler";

@@ -76,7 +76,6 @@ const partnershipCards = [
   {
     icon: Globe2,
     tag: "TNE Partners",
-
   },
   {
     icon: UsersRound,

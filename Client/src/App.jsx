@@ -1,5 +1,4 @@
 import { useState } from "react";
-import heroImg from "./assets/images/hero.jpg";
 import SiteHeader from "./public/component/layout/SiteHeader/SiteHeader";
 import Home from "./public/pages/Home/Home";
 import SiteFooter from "./public/component/layout/SiteFooter/SiteFooter";
@@ -25,9 +24,9 @@ import BlogManagement from "./admin/pages/BlogManagement/BlogManagement";
 import TermsAndCondition from "./public/pages/TermAndConditon/TermsAndCondition";
 import PrivacyPolicy from "./public/pages/PrivacyPolicy/PrivacyPolicy";
 import RefundPolicy from "./public/pages/RefundPolicy/RefundPolicy";
-import BlogIndexPage from "./public/pages/Blogindexpage/Blogindexpage";
+import BlogIndexPage from "./public/pages/BlogIndexPage/BlogIndexPage";
 import BlogDetailPage from "./public/pages/BlogDetailedPage/BlogDetailedPage";
-import ImpactPage from "./public/pages/impactPage/ImpactPage";
+import ImpactPage from "./public/pages/ImpactPage/ImpactPage";
 import Stats from "./admin/pages/Stats/Stats";
 
 function App() {
@@ -53,7 +52,6 @@ function App() {
           <Route path="/blog/:slug" element={<BlogDetailPage />} />
         </Route>
 
-        {/* ADMIN LOGIN */}
         <Route element={<PublicProtectedRoute />}>
           <Route path="/admin/login" element={<Login />} />
         </Route>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import ArticleBody from "../../component/ui/BlogDetailedPage/Articlebody/Articlebody";
-import ArticleHero from "../../component/ui/BlogDetailedPage/Articlehero/Articlehero";
-import ArticleTags from "../../component/ui/BlogDetailedPage/Articletags/Articletags";
-import RelatedInsights from "../../component/ui/BlogDetailedPage/Relatedinsights/Relatedinsights";
+import ArticleBody from "../../component/ui/BlogDetailedPage/ArticleBody/ArticleBody";
+import ArticleHero from "../../component/ui/BlogDetailedPage/ArticleHero/ArticleHero";
+import ArticleTags from "../../component/ui/BlogDetailedPage/ArticleTags/ArticleTags";
+import RelatedInsights from "../../component/ui/BlogDetailedPage/RelatedInsights/RelatedInsights";
 import styles from "./BlogDetailedPage.module.css";
 import { useParams } from "react-router";
 import { handleError } from "../../../utils/handler";

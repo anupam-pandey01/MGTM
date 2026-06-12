@@ -18,11 +18,6 @@ const helpStudents = [
     title:
       "Empowering schools to offer research driven career clarity and holistic student development",
     body: "Schools are the first touchpoint in a student’s academic journey. They provide access to students, parents, and teachers, enabling us to deliver workshops, psychometric assessments, and help students in their long term development pathways. Schools become the foundation for early clarity, emotional resilience, and informed decision making",
-    // perks: [
-    //   "School-wide career discovery sessions",
-    //   "Counsellor enablement & toolkits",
-    //   "Annual cohort insight report",
-    // ],
   },
 
   {

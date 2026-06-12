@@ -1,4 +1,4 @@
-import styles from './Articletags.module.css';
+import styles from './ArticleTags.module.css';
 
 const ArticleTags = ({ tags = [] }) => {
   const handleCopyLink = () => {
@@ -10,7 +10,7 @@ const ArticleTags = ({ tags = [] }) => {
       navigator.share({ title: document.title, url: window.location.href });
     }
   };
-  console.log(tags)
+ 
   return (
     <div className={styles.bar}>
       <div className={styles.tags}>

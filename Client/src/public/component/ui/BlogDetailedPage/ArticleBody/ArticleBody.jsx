@@ -1,4 +1,4 @@
-import styles from './Articlebody.module.css';
+import styles from './ArticleBody.module.css';
 
 const ArticleBody = ({ content }) => {
   if (!content) return null;

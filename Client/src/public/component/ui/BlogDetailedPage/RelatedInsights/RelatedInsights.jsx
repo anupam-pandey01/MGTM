@@ -1,5 +1,5 @@
-import RelatedCard from '../Relatedcard/Releatedcard';
-import styles from './Relatedinsights.module.css';
+import RelatedCard from '../RelatedCard/RelatedCard';
+import styles from './RelatedInsights.module.css';
 
 const RelatedInsights = ({ posts = [] }) => {
   if (!posts.length) return null;

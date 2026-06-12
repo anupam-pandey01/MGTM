@@ -13,11 +13,6 @@ import { Helmet } from "react-helmet-async";
 
 export const ServicesDetail = () => {
   const { openPurchaseModal } = useOutletContext();
-  // const [open, setOpen] = useState(false);
-  // const [productId, setProductId] = useState("");
-  // const [serviceId, setServiceId] = useState("");
-  // const [servicePrice, setServicePrice] = useState(0);
-
   const [serviceData, setServiceData] = useState({});
   const [productData, setProductData] = useState([]);
   const { slug } = useParams();

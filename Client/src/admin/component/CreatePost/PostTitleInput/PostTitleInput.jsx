@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./PosttitleInput.module.css";
+import styles from "./PostTitleInput.module.css";
 
 function toSlug(text) {
   return text
@@ -16,15 +16,6 @@ export default function PostTitleInput({
   onTitleChange,
   onDescriptionChange,
 }) {
-  // const [slug, setSlug] = useState("url-slug-here");
-
-  // useEffect(() => {
-  //   if (title) {
-  //     setSlug(toSlug(title));
-  //   } else {
-  //     setSlug("url-slug-here");
-  //   }
-  // }, [title]);
 
   return (
     <div className={styles.wrapper}>

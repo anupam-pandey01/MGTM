@@ -1,4 +1,4 @@
-import styles from './Relatedcard.module.css';
+import styles from './RelatedCard.module.css';
 
 const RelatedCard = ({ post }) => {
   const { title, shortDescription, category, featuredImage, slug } = post;

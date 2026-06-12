@@ -1,5 +1,5 @@
 import BlogCard from '../BlogCard/BlogCard';
-import styles from './Bloggrid.module.css';
+import styles from './BlogGrid.module.css';
 
 const BlogGrid = ({ posts = [], loading = true, error = null }) => {
   if (loading) {
