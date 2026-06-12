@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import { iconMap } from "../../../utils/iconMap";
 
-import styles from "../../pages/services/Services.module.css";
+import styles from "../../pages/Services/Services.module.css";
 
 const ServicesCard = ({ servicesData }) => {
   return (
