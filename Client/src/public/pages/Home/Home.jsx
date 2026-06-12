@@ -44,17 +44,17 @@ const services = [
 
 const stats = [
   {
-    value: "Growing daily",
+    value: 0,
     label: "Stream & Subject Selection (Classes 8–10)",
     note: "Students enrolled to explore subject combinations and build a strong academic foundation.",
   },
   {
-    value: "Growing daily",
+    value: 0,
     label: "Career Coaching for Classes 10, 11 & 12",
     note: "Students guided through career planning, profile building, and future pathway decisions.",
   },
   {
-    value: "Growing daily",
+    value: 0,
     label: "End-to-End Study Abroad",
     note: "Students supported through university applications, admissions, and international education planning.",
   },
