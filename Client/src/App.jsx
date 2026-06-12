@@ -6,7 +6,7 @@ import { Routes, Route, Navigate } from "react-router";
 import About from "./public/pages/About/About";
 import Services from "./public/pages/Services/Services";
 import Faq from "./public/pages/Faq/Faq";
-import Partnerships from "./public/pages/paternerships/Partnerships";
+import Partnerships from "./public/pages/Paternerships/Partnerships";
 import Contact from "./public/pages/ContactUs/Contact";
 import PublicLayout from "./public/component/layout/PublicLayout";
 import AdminLayout from "./admin/component/layout/AdminLayout/AdminLayout";
