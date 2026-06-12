@@ -23,6 +23,7 @@ const Details = ({
   setPaymentMessage,
 }) => {
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -61,6 +62,7 @@ const Details = ({
     }
 
     try {
+      setLoading(true);
       const userData = {
         ...formData,
         service: serviceId,
@@ -77,8 +79,6 @@ const Details = ({
         handleError(data.message)
       }
 
-      console.log(data);
-
       if (totalAmount === 0) {
         setPaymentMessage({
           success: true,
@@ -94,6 +94,8 @@ const Details = ({
       setStep(2);
     } catch (err) {
       handleError(err);
+    }finally{
+      setLoading(false);
     }
   };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./purchaseRow.module.css";
+import styles from "./PurchaseRow.module.css";
 import { Eye } from "lucide-react";
 import { Pencil } from "lucide-react";
 import { Trash } from "lucide-react";

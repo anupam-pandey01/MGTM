@@ -3,6 +3,7 @@ import styles from './UpgradeChart.module.css';
 
 
 export default function UpgradeChart({steps}) {
+
   return (
     <div className={styles.wrapper}>
       <div className={`${styles.track}`}>
@@ -26,7 +27,7 @@ export default function UpgradeChart({steps}) {
         {steps.map((step, i) => (
           <div key={i} className={styles.labelGroup}>
             <span className={styles.labelTitle}>{step.label}</span>
-            {/* <span className={styles.labelSub}>{step.sub}</span> */}
+            <span className={styles.labelSub}>{step.sub}</span>
           </div>
         ))}
       </div>

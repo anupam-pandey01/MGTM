@@ -106,8 +106,8 @@ input[type=email],input[type=password],input[type=text]{
 }
 input::placeholder{color:#b8b4af}
 input:focus{
-  background:#fff;
-  border-color:var(--navy);
+  /* background:#fff; */
+  /* border-color:var(--navy); */
   box-shadow:0 0 0 3px rgba(30,34,64,.07);
 }
 .input-wrap:focus-within svg.fi{color:var(--navy)}

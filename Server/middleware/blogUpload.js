@@ -10,8 +10,6 @@ const storage = new CloudinaryStorage({
   },
 });
 
-console.log("Blog is uploaded")
-
 const blogUpload = multer({ storage });
 
 

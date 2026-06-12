@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed:stats": "node seedServiceStats.js",
+    "seed:admin": "node seedAdmin.js",
+    "seed:studyAbroad": "node seedStudyAbroad.js",
+    "seed:services": "node seedAll.js"
   },
   "keywords": [],
   "author": "",

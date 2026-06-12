@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import styles from "./CreatePost.module.css";
 import { validateBlog } from "../../../utils/validation/blogValidation";
-import PostTitleInput from "../../component/CreatePost/Posttitleinput/Posttitleinput";
+import PostTitleInput from "../../component/CreatePost/Posttitleinput/PosttitleInput";
 import ContentEditor from "../../component/CreatePost/ContentEditor/ContentEditor";
 import FeaturedImage from "../../component/CreatePost/FeaturedImage/FeaturedImage";
 import PublishingPanel from "../../component/CreatePost/PublishingPanel/PublishingPanel";
 import ClassificationPanel from "../../component/CreatePost/ClassificationPanel/ClassificationPanel";
-import SEOSettings from "../../component/CreatePost/SEOSettings/SEOSettings";
+import SEOSettings from "../../component/CreatePost/SeoSettings/SeoSettings.jsx";
 import {
   createBlog,
   getBlogById,
@@ -41,6 +41,23 @@ const initialState = {
   featured: false,
 };
 
+// ── Helper: always return a proper array from whatever the API gives back ──────
+// API may return tags as:
+//   - already an array: ["tag1", "tag2"]          → use as-is
+//   - comma string:     "tag1,tag2"               → split
+//   - empty string:     ""                        → []
+//   - undefined/null                              → []
+function normalizeArray(val) {
+  if (!val) return [];
+  if (Array.isArray(val)) return val.filter(Boolean);
+  if (typeof val === "string")
+    return val
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+  return [];
+}
+
 export default function CreatePost() {
   const [post, setPost] = useState(initialState);
   const [saved, setSaved] = useState(false);
@@ -52,10 +69,7 @@ export default function CreatePost() {
   const isEdit = !!id;
 
   const update = (key, value) => {
-    setPost((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
+    setPost((prev) => ({ ...prev, [key]: value }));
   };
 
   useEffect(() => {
@@ -66,12 +80,15 @@ export default function CreatePost() {
 
       setPost({
         ...res.blog,
-        publishedAt: res.publishedAt
-          ? new Date(res.publishedAt).toISOString().split("T")[0]
+        publishedAt: res.blog.publishedAt
+          ? new Date(res.blog.publishedAt).toISOString().split("T")[0]
           : new Date().toISOString().split("T")[0],
         featuredImage: {
           url: res.blog.featuredImage?.url,
         },
+        // ── Normalize tags and seoKeywords to always be arrays ──
+        tags: normalizeArray(res.blog.tags),
+        seoKeywords: normalizeArray(res.blog.seoKeywords),
       });
     };
 
@@ -85,10 +102,7 @@ export default function CreatePost() {
       .replace(/[^a-z0-9\s-]/g, "")
       .replace(/\s+/g, "-");
 
-    setPost((prev) => ({
-      ...prev,
-      slug,
-    }));
+    setPost((prev) => ({ ...prev, slug }));
   }, [post.title]);
 
   const handleSave = async () => {
@@ -114,18 +128,17 @@ export default function CreatePost() {
       formData.append("status", post.status);
       formData.append("publishedAt", post.publishedAt);
       formData.append("featured", post.featured);
-
       formData.append("seoTitle", post.seoTitle);
       formData.append("seoDescription", post.seoDescription);
-      formData.append("seoKeywords", JSON.stringify(post.seoKeywords));
-      formData.append("tags", JSON.stringify(post.tags));
+      
+      post.tags.forEach((tag) => formData.append("tags[]", tag));
+      post.seoKeywords.forEach((kw) => formData.append("seoKeywords[]", kw));
 
       if (post.featuredImage?.file) {
         formData.append("featuredImage", post.featuredImage.file);
       }
 
       let res;
-
       if (isEdit) {
         res = await updateBlog(id, formData);
       } else {
@@ -136,12 +149,11 @@ export default function CreatePost() {
         handleSuccess(
           isEdit ? "Blog updated successfully" : "Blog created successfully",
         );
-
         setSaved(true);
         navigate("/admin/blogs");
       }
     } catch (err) {
-      console.error(err.response.data.message);
+      console.error(err?.response?.data?.message);
       handleError(err?.response?.data?.message);
     } finally {
       setLoading(false);
@@ -157,7 +169,9 @@ export default function CreatePost() {
   return (
     <div className={styles.page}>
       <div className={styles.topBar}>
-        <h1 className={styles.pageTitle}>Create Post</h1>
+        <h1 className={styles.pageTitle}>
+          {isEdit ? "Edit Post" : "Create Post"}
+        </h1>
       </div>
 
       <div className={styles.layout}>
@@ -171,9 +185,7 @@ export default function CreatePost() {
               onTitleChange={(value) => update("title", value)}
               onDescriptionChange={(value) => update("shortDescription", value)}
             />
-
             {errors.title && <p className={styles.error}>{errors.title}</p>}
-
             {errors.shortDescription && (
               <p className={styles.error}>{errors.shortDescription}</p>
             )}

@@ -13,7 +13,7 @@ adminRouter.get("/student",authAdmin, adminStudent);
 adminRouter.post("/blog", blogUpload.single("featuredImage"), authAdmin, createBlog);
 adminRouter.get("/blog", authAdmin, getAllBlogs);
 adminRouter.get("/blog/:id", authAdmin, getBlogById);
-adminRouter.put("/blog/:id", authAdmin, updateBlog);
+adminRouter.put("/blog/:id", authAdmin, blogUpload.single("featuredImage"), updateBlog);
 adminRouter.delete("/blog/:id", authAdmin, deleteBlog);
 
 adminRouter.get("/purchases/export", authAdmin, exportPurchases);

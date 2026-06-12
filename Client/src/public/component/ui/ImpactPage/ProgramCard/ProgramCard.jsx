@@ -40,7 +40,7 @@ export default function ProgramCard({ tier, badge, icon, name, tagline, enrollme
       </div>
       <div className={styles.enrollment}>
         <span className={styles.enrollLabel}>{enrollmentTag ? enrollmentTag : "Total Enrollment"}</span>
-        <span className={styles.enrollCount}>{enrollment.toLocaleString()}</span>
+        <span className={styles.enrollCount}>{enrollment}</span>
       </div>
     </article>
   );

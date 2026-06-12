@@ -16,14 +16,12 @@ const PurchaseModal = ({
   productId,
   serviceId,
   price
-  // price,
-  // totalAmount,
-  // GSTAmount,
 }) => {
   const [step, setStep] = useState(1);
   const [purchaseId, setPurchaseId] = useState("");
   const [userId, setUserId] = useState("");
   const [paymentMessage, setPaymentMessage] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const GSTAmount = calculateGst(price);
   const totalAmount = Number(price) + Number(GSTAmount);
@@ -41,6 +39,7 @@ const PurchaseModal = ({
     if (totalAmount == 0) return;
 
     try {
+      setLoading(true);
       const order = await createOrder({
         amount: totalAmount,
         purchaseId,
@@ -66,7 +65,8 @@ const PurchaseModal = ({
             if (data.success) {
               setPaymentMessage(data);
               setStep(3);
-
+              setLoading(false);
+              
               setFormData({
                 name: "",
                 email: "",
@@ -155,6 +155,7 @@ const PurchaseModal = ({
             price={price}
             totalAmount={totalAmount}
             GSTAmount={GSTAmount}
+            loading={loading}
           />
         )}
 

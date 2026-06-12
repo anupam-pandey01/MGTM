@@ -40,12 +40,6 @@ const AdminSidebar = () => {
       path: "/admin/blogs",
       icon: <Newspaper size={20} />,
     },
-
-    {
-      name: "Messages",
-      path: "/admin/messages",
-      icon: <MessageSquare size={20} />,
-    },
   ];
 
   const { logout } = useAuth();

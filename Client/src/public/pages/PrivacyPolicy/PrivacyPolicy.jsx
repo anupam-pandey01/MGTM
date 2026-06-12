@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
         </div>
       </section>
 
-      <div className={`${styles.contentWrap} `}>
+      <div className={`${styles.contentWrap} container`}>
         <main className={styles.sections}>
           <p className={styles.introNote}>
             Welcome to <strong>MGTM Consultancy LLP</strong>. We are committed

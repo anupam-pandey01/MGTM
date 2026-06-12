@@ -87,13 +87,12 @@ export const deleteBlog = async (id) => {
 };
 
 export const updateBlog = async (id, data) => {
-  const response = await api.put(`api/admin/blog/${id}`, data, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
-
-  return response.data;
+  try {
+    const response = await api.put(`/api/admin/blog/${id}`, data);
+    return response.data;
+  } catch (err) {
+    throw err?.response?.data?.message || "Failed to update blog";
+  }
 };
 
 export const getContact = async()=>{
@@ -105,3 +104,12 @@ export const getContact = async()=>{
         throw err.response.data.message
     }
 }
+
+export const updateMetrics = async (data) => {
+  try {
+    const res = await api.patch("/metrics", data);
+    return res;
+  } catch (err) {
+    throw err?.response?.data?.message || "Failed to update metrics";
+  }
+};

@@ -44,8 +44,8 @@ const createBlog = async (req, res) => {
       author,
       seoTitle,
       seoDescription,
-      seoKeywords,
-      tags,
+      tags: [].concat(req.body.tags || []),
+      seoKeywords: [].concat(req.body.seoKeywords || []),
       status,
       featured,
       readTime,
@@ -60,11 +60,10 @@ const createBlog = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      blog,
-      message: "Blog Created Successfully"
+      message: "Blog Created Successfully",
     });
   } catch (error) {
-    console.error(error)
+    console.error(error);
     res.status(500).json({
       success: false,
       message: error.message,
@@ -76,7 +75,7 @@ const getAllBlogs = async (req, res) => {
   try {
     const page = Number(req.query.page) || 1;
     const limit = 5;
-    
+
     const skip = (page - 1) * limit;
 
     const blogs = await Blog.find()
@@ -152,38 +151,33 @@ const updateBlog = async (req, res) => {
 
     const updateData = {
       ...req.body,
-      tags: req.body.tags
-        ? JSON.parse(req.body.tags)
-        : blog.tags,
-      seoKeywords: req.body.seoKeywords
-        ? JSON.parse(req.body.seoKeywords)
-        : blog.seoKeywords,
+      tags: [].concat(req.body.tags || blog.tags || []),
+      seoKeywords: [].concat(req.body.seoKeywords || blog.seoKeywords || []),
     };
 
     if (req.file) {
+      // Delete old image from cloudinary first
+      if (blog.featuredImage?.publicId) {
+        await cloudinary.uploader.destroy(blog.featuredImage.publicId);
+      }
+
       updateData.featuredImage = {
         url: req.file.path,
-        public_id: req.file.filename,
+        publicId: req.file.filename,
       };
     }
 
-    const updatedBlog = await Blog.findByIdAndUpdate(
-      id,
-      updateData,
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
+    await Blog.findByIdAndUpdate(id, updateData, {
+      new: true,
+      runValidators: true,
+    });
 
     res.status(200).json({
       success: true,
       message: "Blog updated successfully",
-      blog: updatedBlog,
     });
   } catch (err) {
     console.error(err);
-
     res.status(500).json({
       success: false,
       message: "Server Error",
@@ -203,9 +197,7 @@ const deleteBlog = async (req, res) => {
     }
 
     if (blog.featuredImage?.publicId) {
-      await cloudinary.uploader.destroy(
-        blog.featuredImage.publicId
-      );
+      await cloudinary.uploader.destroy(blog.featuredImage.publicId);
     }
 
     await blog.deleteOne();
@@ -215,7 +207,7 @@ const deleteBlog = async (req, res) => {
       message: "Blog deleted successfully",
     });
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json({
       success: false,
       message: "Server Error",

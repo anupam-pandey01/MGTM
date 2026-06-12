@@ -1,6 +1,7 @@
 const adminRouter = require("./admin.router");
 const blogRouter = require("./blog.router");
 const messageRouter = require("./message.router");
+const statsRouter = require("./metrics.router");
 const paymentRouter = require("./payment.router");
 const servicesRouter = require("./services.router");
 const userRouter = require("./user.router");
@@ -10,6 +11,7 @@ mainRouter.use(servicesRouter);
 mainRouter.use("/api/admin", adminRouter);
 mainRouter.use(messageRouter);
 mainRouter.use(userRouter);
+mainRouter.use(statsRouter);
 mainRouter.use("/api/payment/", paymentRouter);
 mainRouter.use("/api", blogRouter);
 

@@ -5,6 +5,7 @@ import { getDashboard } from "../../../services/adminServices/adminApi";
 import { useAuth } from "../../context/AdminAuthContext";
 import { ReceiptTurkishLiraIcon } from "lucide-react";
 import Stats from "../../component/Common/StatsCard/Stats";
+import Messages from "../Messages/Messages";
 
 const Dashboard = () => {
   const { loading } = useAuth();
@@ -52,64 +53,7 @@ const Dashboard = () => {
       />
 
       <div className="dashboard-recent">
-        <h1>Recent Activity</h1>
-        <div className="activity">
-          <div className="activity-card">
-            <div className="activity-left">
-              <div className="activity-dot"></div>
-
-              <div className="activity-content">
-                <h4>New student enrolled</h4>
-
-                <p>Rahul Sharma applied for Study Abroad.</p>
-              </div>
-            </div>
-
-            <span className="activity-time">2 min ago</span>
-          </div>
-
-          <div className="activity-card">
-            <div className="activity-left">
-              <div className="activity-dot"></div>
-
-              <div className="activity-content">
-                <h4>New student enrolled</h4>
-
-                <p>Rahul Sharma applied for Study Abroad.</p>
-              </div>
-            </div>
-
-            <span className="activity-time">2 min ago</span>
-          </div>
-
-          <div className="activity-card">
-            <div className="activity-left">
-              <div className="activity-dot"></div>
-
-              <div className="activity-content">
-                <h4>New student enrolled</h4>
-
-                <p>Rahul Sharma applied for Study Abroad.</p>
-              </div>
-            </div>
-
-            <span className="activity-time">2 min ago</span>
-          </div>
-
-          <div className="activity-card">
-            <div className="activity-left">
-              <div className="activity-dot"></div>
-
-              <div className="activity-content">
-                <h4>New student enrolled</h4>
-
-                <p>Rahul Sharma applied for Study Abroad.</p>
-              </div>
-            </div>
-
-            <span className="activity-time">2 min ago</span>
-          </div>
-        </div>
+        <Messages/>
       </div>
     </div>
   );

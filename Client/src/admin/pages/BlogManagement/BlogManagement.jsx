@@ -1,5 +1,3 @@
-// import BlogStats from "../BlogStats/BlogStats";
-// import BlogTable from "../BlogTable/BlogTable";
 import { Link } from "react-router";
 import DataTable from "../../component/Common/DataTable/DataTable";
 import Stats from "../../component/Common/StatsCard/Stats";

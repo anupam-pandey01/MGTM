@@ -44,17 +44,17 @@ const services = [
 
 const stats = [
   {
-    value: "0",
+    value: "Growing daily",
     label: "Stream & Subject Selection (Classes 8–10)",
     note: "Students enrolled to explore subject combinations and build a strong academic foundation.",
   },
   {
-    value: "0",
+    value: "Growing daily",
     label: "Career Coaching for Classes 10, 11 & 12",
     note: "Students guided through career planning, profile building, and future pathway decisions.",
   },
   {
-    value: "0",
+    value: "Growing daily",
     label: "End-to-End Study Abroad",
     note: "Students supported through university applications, admissions, and international education planning.",
   },
@@ -64,47 +64,39 @@ const partnershipCards = [
   {
     icon: School,
     tag: "Schools",
-    // line: "Empowering schools to offer research driven career clarity and holistic student development.",
   },
   {
     icon: GraduationCap,
     tag: "COLLEGES & UNIVERSITIES",
-    // line: "Building transparent pathways between institutions and students through ethical, data backed guidance.",
   },
   {
     icon: BadgeCheck,
     tag: "CERTIFICATION PROVIDERS",
-    // line: "Strengthening student profiles with verified, future ready learning experiences.",
   },
   {
     icon: Globe2,
     tag: "TNE Partners",
-    // line: "Connecting students to global learning opportunities through trusted academic partnerships.",
+
   },
   {
     icon: UsersRound,
     tag: "EDUCATORS",
-    // line: "Connecting students to global learning opportunities through trusted academic partnerships.",
   },
   {
     icon: Brain,
     tag: "Psychologists",
-    // line: "Connecting students to global learning opportunities through trusted academic partnerships.",
   },
   {
     icon: Languages,
     tag: "Language Trainers",
-    // line: "Connecting students to global learning opportunities through trusted academic partnerships.",
   },
   {
     icon: MessagesSquare,
     tag: "SOFT SKILL TRAINERS",
-    // line: "Connecting students to global learning opportunities through trusted academic partnerships.",
   },
   {
     icon: Lightbulb,
     tag: "Learning & Development Specialists",
-    // line: "Connecting students to global learning opportunities through trusted academic partnerships.",
   },
 ];
 
@@ -187,7 +179,6 @@ const Home = () => {
       </Helmet>
 
       <div className={styles.homePage}>
-        {/* HERO */}
         <section className={styles.heroSection}>
           <div className={`container ${styles.heroContainer}`}>
             <div className={styles.heroContent}>
@@ -233,7 +224,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* SERVICES */}
         <section className={styles.servicesSection}>
           <div className="container">
             <div className={styles.sectionHeader}>
@@ -304,7 +294,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* STORIES */}
         <section className={styles.storiesSection}>
           <div className="container">
             <div className={styles.storiesTop}>
@@ -340,7 +329,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* PARTNERSHIPS */}
         <section className={styles.partnershipSection}>
           <div className={`container ${styles.partnershipContainer}`}>
             <div className={styles.partnershipContent}>
@@ -372,8 +360,6 @@ const Home = () => {
                   <div className={styles.partnershipContent}>
                     <span>{card.tag}</span>
                   </div>
-
-                  {/* <p>{card.line}</p> */}
                 </div>
               ))}
 

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./PaymentStep.module.css"
 import { calculateGst } from "../../../../../utils/calculateGst";
 
-const PaymentStep = ({ handlePayment, price, GSTAmount, totalAmount}) => {
+const PaymentStep = ({ handlePayment, price, GSTAmount, totalAmount, loading}) => {
 
 
 
@@ -17,8 +17,8 @@ const PaymentStep = ({ handlePayment, price, GSTAmount, totalAmount}) => {
         <p className={styles.amount}><span>Total </span>  <span>₹{totalAmount}</span> </p>
       </div>
       
-      <button className={styles.primaryBtn} onClick={()=>handlePayment()}>
-        Pay Now
+      <button className={styles.primaryBtn} disabled={loading} onClick={()=>handlePayment()}>
+        {loading ? "...loading" : "Pay Now"}
       </button>
       </div>
     </div>

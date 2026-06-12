@@ -152,7 +152,6 @@ const blog = [
 async function seedBlogs() {
   try {
 
-    // await mongoose.connect(process.env.MONGO_URI);
     connectDB()
 
     console.log("MongoDB Connected");

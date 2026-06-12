@@ -1,12 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
-import styles from "./BlogIndexPage.module.css";
+import styles from "./Blogindexpage.module.css";
 
 import PageHeroSection from "../../component/ui/PageHeroSection/PageHeroSection";
 import FilterTabs from "../../component/ui/BlogIndexPage/FilterTabs/FilterTabs";
 import BlogGrid from "../../component/ui/BlogIndexPage/Bloggrid/Bloggrid";
 import Pagination from "../../component/ui/BlogIndexPage/Pagination/Pagination";
-// import NewsletterSection from "../../component/ui/BlogIndexPage/Newslettersection/Newslettersection";
 
 import { handleError } from "../../../utils/handler";
 import { blog } from "../../../services/publicServices/blogApi";
@@ -57,7 +56,6 @@ const BlogIndexPage = () => {
   return (
     <>
       <Helmet>
-        {/* Primary SEO */}
         <title>
           Career Guidance & Study Abroad Blog | MGTM Consultancy LLP
         </title>
@@ -85,14 +83,10 @@ const BlogIndexPage = () => {
           name="author"
           content="MGTM Consultancy LLP"
         />
-
-        {/* Canonical */}
         <link
           rel="canonical"
           href={canonicalUrl}
         />
-
-        {/* Open Graph */}
         <meta
           property="og:title"
           content="Career Guidance & Study Abroad Blog | MGTM Consultancy LLP"
@@ -132,8 +126,6 @@ const BlogIndexPage = () => {
           property="og:locale"
           content="en_IN"
         />
-
-        {/* Twitter */}
         <meta
           name="twitter:card"
           content="summary_large_image"
@@ -154,7 +146,6 @@ const BlogIndexPage = () => {
           content="https://www.mgtmconsultancy.com/og-blog-index.jpg"
         />
 
-        {/* Blog Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -162,7 +153,7 @@ const BlogIndexPage = () => {
             name: "MGTM Consultancy LLP Blog",
             description:
               "Career guidance and study abroad resources for students and parents.",
-            url: "https://www.mgtmconsultancy.com/blogs",
+            url: "https://www.mgtmconsultancy.com/blog",
             publisher: {
               "@type": "EducationalOrganization",
               name: "MGTM Consultancy LLP",
@@ -226,8 +217,6 @@ const BlogIndexPage = () => {
             />
           </div>
         </section>
-
-        {/* <NewsletterSection /> */}
       </main>
     </>
   );

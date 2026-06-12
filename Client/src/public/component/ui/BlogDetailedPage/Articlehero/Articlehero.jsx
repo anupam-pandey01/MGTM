@@ -1,4 +1,4 @@
-import styles from "./ArticleHero.module.css";
+import styles from "./Articlehero.module.css";
 
 const ArticleHero = ({
   category,

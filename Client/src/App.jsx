@@ -26,9 +26,9 @@ import TermsAndCondition from "./public/pages/TermAndConditon/TermsAndCondition"
 import PrivacyPolicy from "./public/pages/PrivacyPolicy/PrivacyPolicy";
 import RefundPolicy from "./public/pages/RefundPolicy/RefundPolicy";
 import BlogIndexPage from "./public/pages/Blogindexpage/Blogindexpage";
-import BlogDetailPage from "./public/pages/BlogDetailedPage/Blogdetailedpage";
-import ImpactPage from "./public/pages/impactPage/impactPage";
-import Messages from "./admin/pages/Messages/Messages";
+import BlogDetailPage from "./public/pages/BlogDetailedPage/BlogDetailedPage";
+import ImpactPage from "./public/pages/impactPage/ImpactPage";
+import Stats from "./admin/pages/Stats/Stats";
 
 function App() {
 
@@ -67,9 +67,7 @@ function App() {
             <Route path="blogs" element={<BlogManagement />} />
             <Route path="blogs/create" element={<CreatePost />} />
             <Route path="blogs/:id" element={<CreatePost />} />
-            <Route path="services" element={<h1>Services</h1>} />
-            <Route path="partners" element={<h1>Partners</h1>} />
-            <Route path="messages" element={<Messages/>} />
+            <Route path="stats" element={<Stats/>}/>
           </Route>
         </Route>
       </Routes>

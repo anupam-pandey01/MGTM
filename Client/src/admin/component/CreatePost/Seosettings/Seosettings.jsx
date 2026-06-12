@@ -1,5 +1,5 @@
-import { useState } from "react";
-import styles from "./SEOSettings.module.css";
+import { useEffect, useState } from "react";
+import styles from "./SeoSettings.module.css";
 
 export default function SEOSettings({
   seoTitle,
@@ -10,9 +10,16 @@ export default function SEOSettings({
   onSeoDescriptionChange,
   onSeoKeywordsChange,
 }) {
-
   const [open, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState(seoKeywords?.join(", ") || "");
+  const [isFetched, setIsFetched] = useState(false);
+
+  useEffect(() => {
+    if (!isFetched && seoKeywords?.length > 0) {
+      setInputValue(seoKeywords.join(", "));
+      setIsFetched(true);
+    }
+  }, [seoKeywords]);
 
   return (
     <div className={styles.panel}>
@@ -54,7 +61,9 @@ export default function SEOSettings({
             />
 
             <span className={styles.hint}>
-              <span className={seoTitle.length > 60 ? styles.error: ""}>{seoTitle.length}/60 characters</span>
+              <span className={seoTitle.length > 60 ? styles.error : ""}>
+                {seoTitle.length}/60 characters
+              </span>
             </span>
           </div>
 

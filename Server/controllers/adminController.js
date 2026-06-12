@@ -7,6 +7,7 @@ const Purchase = require("../models/purchase");
 const User = require("../models/user");
 const Message = require("../models/message");
 const Service = require("../models/service");
+const Blog = require("../models/blog");
 
 const logout = async (req, res) => {
   try {
@@ -112,7 +113,8 @@ const adminDashboard = async (req, res) => {
   try {
     const totalStudent = await User.countDocuments();
     const totalService = await Service.countDocuments();
-    const purchases = await Purchase.find({});
+    const purchases = await Purchase.find({ paymentStatus: "paid" });
+    const totalBlogs = await Blog.countDocuments()
 
     const totalAmount = purchases.reduce((sum, item) => sum + item.amount, 0);
 
@@ -122,7 +124,8 @@ const adminDashboard = async (req, res) => {
       dashboard: {
         totalStudent,
         totalService,
-        totalAmount
+        totalAmount,
+        totalBlogs
       },
     });
   } catch (err) {

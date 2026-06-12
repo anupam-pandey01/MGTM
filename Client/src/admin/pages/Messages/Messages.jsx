@@ -35,7 +35,7 @@ const Messages = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1>Messages</h1>
+        <h1>Recent Messages</h1>
         <span className={styles.total}>
           {messages.length} Total
         </span>

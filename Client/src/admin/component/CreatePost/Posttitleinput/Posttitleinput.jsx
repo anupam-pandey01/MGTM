@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./PostTitleInput.module.css";
+import styles from "./PosttitleInput.module.css";
 
 function toSlug(text) {
   return text

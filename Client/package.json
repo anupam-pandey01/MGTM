@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "check-imports": "node check-imports.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
