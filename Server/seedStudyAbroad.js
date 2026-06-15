@@ -7,9 +7,6 @@ require("dotenv").config()
 const seed = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    // Clean old data (optional)
-    // await Service.deleteOne({ slug: "study-abroad" });
-    // await Product.deleteMany({});
 
     // 1. Create Service
     const service = await Service.findOne({slug: "study-abroad"});

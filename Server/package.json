@@ -4,7 +4,6 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "seed:stats": "node seedServiceStats.js",
     "seed:admin": "node seedAdmin.js",
     "seed:studyAbroad": "node seedStudyAbroad.js",
     "seed:services": "node seedAll.js"
