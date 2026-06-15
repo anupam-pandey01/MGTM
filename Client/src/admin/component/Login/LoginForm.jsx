@@ -7,11 +7,6 @@ import { useNavigate } from "react-router"
 
 const LoginForm = ({ setActiveTab, formData, setFormData, handleSubmit, errors }) => {
 
-  // const [formData, setFormData] = useState({
-  //   email: "",
-  //   password: "",
-  // });
-
   const navigate = useNavigate()
 
   const [success, setSuccess] = useState(false);
@@ -41,12 +36,6 @@ const LoginForm = ({ setActiveTab, formData, setFormData, handleSubmit, errors }
 
       </div>
 
-      {/* {success && (
-        <div className="success-banner">
-          Login successful — redirecting...
-        </div>
-      )} */}
-
       <form onSubmit={handleSubmit}>
         <div className="form-group">
 
@@ -59,12 +48,6 @@ const LoginForm = ({ setActiveTab, formData, setFormData, handleSubmit, errors }
             onChange={handleChange}
             placeholder="Enter the admin email"
           />
-
-          {/* {errors.email && (
-            <span className="error-msg">
-              {errors.email}
-            </span>
-          )} */}
 
         </div>
 

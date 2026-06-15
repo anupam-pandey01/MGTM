@@ -82,7 +82,7 @@ exports.verifyPayment = async (req, res) => {
 
     const purchase = await Purchase.findOne({
       razorpayOrderId: razorpay_order_id,
-    }).populate("user")
+    }).populate("user");
 
     if (!purchase) {
       return res.status(404).json({
@@ -98,26 +98,174 @@ exports.verifyPayment = async (req, res) => {
     await purchase.save();
 
     try {
-      await transporter.sendMail({
-        from: `"MGTM Consultancy" <${process.env.EMAIL_USER}>`,
-        to: purchase?.user?.email,
-        subject: "Payment Confirmation",
-        html: `
-        <h2>Payment Successful 🎉</h2>
-        <p>Dear ${purchase.user.name},</p>
+      await Promise.all([
+        transporter.sendMail({
+          from: `"MGTM Consultancy" <${process.env.EMAIL_USER}>`,
+          to: purchase.user.email,
+          subject: "Payment Confirmation - MGTM Consultancy",
+          html: `
+              <!DOCTYPE html>
+              <html>
+              <body style="margin:0;padding:0;background:#f5f5f5;font-family:Arial,sans-serif;">
 
-        <p>Thank you for enrolling with MGTM Consultancy.</p>
+              <table width="100%" cellpadding="0" cellspacing="0" style="padding:32px 16px;">
+              <tr>
+              <td align="center">
 
-        <p>We have successfully received your payment.</p>
+              <table width="100%" cellpadding="0" cellspacing="0"
+              style="max-width:520px;background:#ffffff;border:1px solid #e5e5e5;border-radius:8px;overflow:hidden;">
 
-        <p><strong>Payment ID:</strong> ${razorpay_payment_id}</p>
-        <p><strong>Amount:</strong> ₹${purchase.amount}</p>
+              <tr>
+              <td style="background:#1a1a1a;padding:24px 28px;">
+                <p style="margin:0;font-size:12px;color:#999;text-transform:uppercase;letter-spacing:1px;">
+                  MGTM Consultancy
+                </p>
 
-        <p>Our team will contact you shortly with the next steps.</p>
+                <h2 style="margin:8px 0 0;color:#fff;">
+                  Payment Successful 🎉
+                </h2>
+              </td>
+              </tr>
 
-        <p>Regards,<br/>MGTM Consultancy</p>
-      `,
-      });
+              <tr>
+              <td style="padding:28px;">
+
+              <p>Dear <strong>${purchase.user.name}</strong>,</p>
+
+              <p>
+              Thank you for enrolling with MGTM Consultancy.
+              We have successfully received your payment.
+              </p>
+
+              <table width="100%" cellpadding="8" cellspacing="0"
+              style="background:#f9f9f9;border-radius:6px;margin:20px 0;">
+              <tr>
+              <td><strong>Payment ID</strong></td>
+              <td>${razorpay_payment_id}</td>
+              </tr>
+
+              <tr>
+              <td><strong>Amount</strong></td>
+              <td>₹${purchase.amount}</td>
+              </tr>
+              </table>
+
+              <p>
+              Our team will contact you shortly with the next steps.
+              </p>
+
+              <p>
+              Regards,<br>
+              <strong>MGTM Consultancy</strong>
+              </p>
+
+              </td>
+              </tr>
+
+              <tr>
+              <td style="background:#f9f9f9;padding:14px 28px;border-top:1px solid #eee;">
+                <p style="margin:0;font-size:11px;color:#999;">
+                  ${new Date().toLocaleString("en-IN", {
+                    dateStyle: "medium",
+                    timeStyle: "short",
+                    timeZone: "Asia/Kolkata",
+                  })} IST · mgtmconsultancy.com
+                </p>
+              </td>
+              </tr>
+              </table>
+              </td>
+              </tr>
+              </table>
+              </body>
+              </html>
+              `,
+            }),
+
+            transporter.sendMail({
+              from: `"MGTM Consultancy" <${process.env.EMAIL_USER}>`,
+              to: process.env.EMAIL_USER,
+              subject: "New Purchase Received",
+              html: `
+          <!DOCTYPE html>
+          <html>
+          <body style="margin:0;padding:0;background:#f5f5f5;font-family:Arial,sans-serif;">
+
+          <table width="100%" cellpadding="0" cellspacing="0" style="padding:32px 16px;">
+          <tr>
+          <td align="center">
+
+          <table width="100%" cellpadding="0" cellspacing="0"
+          style="max-width:520px;background:#ffffff;border:1px solid #e5e5e5;border-radius:8px;overflow:hidden;">
+
+          <tr>
+          <td style="background:#1a1a1a;padding:24px 28px;">
+            <p style="margin:0;font-size:12px;color:#999;text-transform:uppercase;letter-spacing:1px;">
+              MGTM Consultancy
+            </p>
+
+            <h2 style="margin:8px 0 0;color:#fff;">
+              New Purchase Received 💰
+            </h2>
+          </td>
+          </tr>
+
+          <tr>
+          <td style="padding:28px;">
+
+          <p>A new customer has successfully completed their payment.</p>
+
+          <table width="100%" cellpadding="8" cellspacing="0"
+          style="background:#f9f9f9;border-radius:6px;margin:20px 0;">
+
+          <tr>
+          <td><strong>Name</strong></td>
+          <td>${purchase.user.name}</td>
+          </tr>
+
+          <tr>
+          <td><strong>Email</strong></td>
+          <td>${purchase.user.email}</td>
+          </tr>
+
+          <tr>
+          <td><strong>Payment ID</strong></td>
+          <td>${razorpay_payment_id}</td>
+          </tr>
+
+          <tr>
+          <td><strong>Amount</strong></td>
+          <td>₹${purchase.amount}</td>
+          </tr>
+
+          </table>
+
+          <p>
+          Please follow up with the customer regarding onboarding and next steps.
+          </p>
+
+          </td>
+          </tr>
+
+          <tr>
+          <td style="background:#f9f9f9;padding:14px 28px;border-top:1px solid #eee;">
+            <p style="margin:0;font-size:11px;color:#999;">
+              ${new Date().toLocaleString("en-IN", {
+                dateStyle: "medium",
+                timeStyle: "short",
+                timeZone: "Asia/Kolkata",
+              })} IST · MGTM Internal Notification
+            </p>
+          </td>
+          </tr>
+          </table>
+          </td>
+          </tr>
+          </table>
+          </body>
+          </html> `
+        }),
+      ]);
     } catch (emailError) {
       console.error("Email sending failed:", emailError);
     }

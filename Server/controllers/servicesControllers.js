@@ -1,3 +1,4 @@
+const metrics = require("../models/metrics");
 const Product = require("../models/product");
 const Service = require("../models/service");
 
@@ -24,8 +25,6 @@ const getServices = async (req, res) => {
 };
 
 const getServicesPageDetail = async(req, res)=>{
-  
-
   try{
     const { slug } = req.params;
     const service = await Service.findOne({
@@ -58,8 +57,29 @@ const getServicesPageDetail = async(req, res)=>{
   }
 }
 
+const getStatsHomePage = async(req, res)=>{
+  try{
+    const data = await metrics.findOne();
+
+    const statsService = {
+      streamSelection: 0,
+      careerCoaching: 0,
+      studyAbroad: 0
+    }
+
+    statsService.streamSelection += (data.ignite_enrollment + data.propel_enrollment + data.accelerate_enrollment);
+    statsService.careerCoaching += (data.career_ignite_enrollment + data.career_propel_enrollment + data.career_accelerate_enrollment + data.career_captains_enrollment);
+    statsService.studyAbroad += data.abroad_enrolled
+
+    res.status(200).json(statsService);
+  }catch(err){
+    console.log(err);
+    res.status(500).json({ message: "Something went worong", success: false})
+  }
+}
 
 module.exports = {
   getServices,
   getServicesPageDetail,
+  getStatsHomePage,
 };

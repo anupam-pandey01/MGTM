@@ -22,6 +22,9 @@
 .step:last-child {
   flex: 0 0 auto;
 }
+.note p{
+  margin-top: 20px;
+}
 
 .bubble {
   width: 72px;
@@ -91,6 +94,7 @@
   font-size: 0.72rem;
   color: var(--color-muted);
 }
+
 
 @media (max-width: 600px) {
   .wrapper {

@@ -40,9 +40,9 @@ const Login = () => {
 
     if (!formData.password.trim()) {
       newErrors.password = "Password is required";
-    } else if (formData.password.length < 8) {
+    } else if (formData.password.length < 6) {
       newErrors.password =
-        "Password must be at least 8 characters";
+        "Password must be at least 6 characters";
     }
 
     setErrors(newErrors);
@@ -96,7 +96,6 @@ const Login = () => {
 
           </div>
 
-          {/* SWITCH */}
 
           {activeTab === "login" ? (
             <LoginForm setActiveTab={setActiveTab} setFormData={setFormData} formData={formData} handleSubmit={handleSubmit} errors={errors}/>

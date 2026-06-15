@@ -31,7 +31,7 @@ export default function PostTitleInput({
 
       <div className={styles.slugRow}>
         <span className={styles.linkIcon}>⌘</span>
-        <span className={styles.baseUrl}>mgtm.com/blogs/</span>
+        <span className={styles.baseUrl}>mgtmconsultancy.com/blogs/</span>
         <span className={styles.slug}>{slug}</span>
       </div>
 

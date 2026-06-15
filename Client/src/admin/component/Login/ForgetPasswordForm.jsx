@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { handleError, handleSuccess } from "../../../utils/handler";
+import { resetPassword } from "../../../services/adminServices/adminApi";
 
 const ForgotPasswordForm = ({ setActiveTab }) => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email.trim()) {
@@ -19,11 +21,22 @@ const ForgotPasswordForm = ({ setActiveTab }) => {
     }
 
     setError("");
+    try{
+      setLoading(true);
+      const data  = await resetPassword(email);
 
-    console.log(email);
-
-    setSuccess(true);
-  };
+      if(data.success){
+        handleSuccess(data.message);
+      }else{
+        handleError(data.message);
+      }
+    }catch(err){
+      console.log(err);
+      handleError(err);
+    }finally{
+      setLoading(false)
+    }
+  }
 
   return (
     <div className="view">
@@ -35,10 +48,6 @@ const ForgotPasswordForm = ({ setActiveTab }) => {
         <p>Enter your admin email and we'll send a reset link.</p>
       </div>
 
-      {success && (
-        <div className="success-banner">Reset link sent successfully.</div>
-      )}
-
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Email address</label>
@@ -47,14 +56,14 @@ const ForgotPasswordForm = ({ setActiveTab }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="admin@mgtmconsultancy.com"
+            placeholder="Enter your admin email"
           />
 
           {error && <span className="error-msg">{error}</span>}
         </div>
 
-        <button type="submit" className="btn-submit">
-          Send reset password
+        <button type="submit" className="btn-submit" disabled={loading}>
+          {loading ? "...loading" : "Send reset password"}
         </button>
       </form>
 

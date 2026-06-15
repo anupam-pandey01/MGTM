@@ -113,3 +113,13 @@ export const updateMetrics = async (data) => {
     throw err?.response?.data?.message || "Failed to update metrics";
   }
 };
+
+export const resetPassword = async (email)=>{
+  try{
+    const res = await api.post("api/admin/forget-password", {email});
+
+    return res.data;
+  }catch(err){
+    throw err?.response?.data?.message || "Failed to reset password"
+  }
+}

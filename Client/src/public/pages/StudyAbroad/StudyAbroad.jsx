@@ -60,14 +60,14 @@ const values = [
   },
   {
     icon: "🛡",
-    title: "•	We don’t push students into trends.",
+    title: "We don’t push students into trends.",
     subtitle: "we help them build future-ready careers.",
   },
   {
     icon: "✦",
     title: "We chase alignment.",
     subtitle:
-      "•	We don’t treat students as leads. we treat them as lives in transition.",
+      "We don’t treat students as leads. we treat them as lives in transition.",
   },
 ];
 
@@ -196,17 +196,28 @@ function StudyAbroad() {
           </div>
         </section>
 
-        <CurrencyTicker />
+        <section className={styles.cta}>
+    
+        </section>
 
         {/* CTA */}
-        <section className={styles.cta}>
-          <div className={`${styles.ctaBox} container`}>
+        <section className={`${styles.cta} container`}>
+          <div className={styles.ctaBox1}>
+            <h3>
+             Planning your global education means tracking global economies. See how far your investments go
+            </h3>
+            <CurrencyTicker />
+          </div>
+
+          <div className={`${styles.ctaBox2}`}>
             <h2>Start with a conversation, not a brochure.</h2>
 
             <p>
               Every engagement begins with a psychometric assessment so your
               country, course and university shortlist is built on evidence.
             </p>
+
+            <p className={styles.price}><strong>Sevice Fee:</strong> ₹ 6000 +<i>GST</i></p>
 
             <div className={styles.button}>
               <Link to={`/contact`}>

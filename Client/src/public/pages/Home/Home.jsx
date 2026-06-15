@@ -1,5 +1,4 @@
 import styles from "./Home.module.css";
-
 import {
   ArrowRight,
   BookOpenCheck,
@@ -18,11 +17,12 @@ import {
   Lightbulb,
   UsersRound,
 } from "lucide-react";
-
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router";
 import hero from "../../../assets/images/hero-image-removebg-preview.png";
 import Note from "../../component/ui/Note";
+import { useEffect, useState } from "react";
+import { getHomeStats } from "../../../services/publicServices/metricsApi";
 
 const services = [
   {
@@ -118,6 +118,21 @@ const stories = [
 ];
 
 const Home = () => {
+  const [homePageStats, setHomePageStats] = useState({});
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await getHomeStats();
+        
+        console.log(data)
+        setHomePageStats(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getData()
+  }, []);
   return (
     <>
       <Helmet>
@@ -279,7 +294,20 @@ const Home = () => {
             <div className={styles.statsGrid}>
               {stats.map((item) => (
                 <div className={styles.statsCard} key={item.label}>
-                  <h3>{item.value}</h3>
+                  <h3>
+                    {
+                      item.label == "Stream & Subject Selection (Classes 8–10)" &&
+                      homePageStats?.streamSelection
+                    }
+                    {
+                      item.label == "Career Coaching for Classes 10, 11 & 12" &&
+                      homePageStats?.careerCoaching
+                    }
+                    {
+                      item.label == "End-to-End Study Abroad" &&
+                      homePageStats?.studyAbroad
+                    }
+                  </h3>
 
                   <h4>{item.label}</h4>
 

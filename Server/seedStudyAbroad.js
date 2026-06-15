@@ -21,7 +21,7 @@ const seed = async () => {
       service: service._id,
       pricing: {
         type: "fixed",
-        price: 7500,
+        price: 6000,
       },
     });
 

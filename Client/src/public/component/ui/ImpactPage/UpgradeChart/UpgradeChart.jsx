@@ -1,3 +1,4 @@
+import Note from '../../Note';
 import styles from './UpgradeChart.module.css';
 
 
@@ -30,6 +31,9 @@ export default function UpgradeChart({steps}) {
             <span className={styles.labelSub}>{step.sub}</span>
           </div>
         ))}
+      </div>
+      <div className={styles.note}>
+        <p><strong>Note: </strong> {steps.length > 2 ? "Excludes direct Ignite ➔ Accelerate or Captain's Club enrolments' or direct enrolment from propel to captains club":"Exclude Ignite to Accelerate direct enrolment"}</p>
       </div>
     </div>
   );

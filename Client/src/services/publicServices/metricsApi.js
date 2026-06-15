@@ -11,3 +11,14 @@ export const getMetrics = async (slug) => {
     throw Error(err.response.data.message);
   }
 };
+
+export const getHomeStats = async () => {
+  try {
+    const res = await api.get(`/home-page-stats`);
+    
+    return res.data;
+  } catch (err) {
+    console.log(err);
+    throw Error(err.response.data.message);
+  }
+};

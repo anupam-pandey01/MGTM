@@ -3,19 +3,21 @@ const { Schema } = require("mongoose");
 
 const messageSchema = new Schema({
   inquiryType: {
-    type: "String",
-    enum: ["individual", "organization"],
+    type: String,
+    enum: ["general", "partnership", "service"],
     required: true,
-    default: "individual"
+    default: "general"
   },
   name: {
-    type: "String",
+    type: String,
     required: true,
   },
   organizationName: {
     type: String,
   },
-
+  serviceName: {
+    type: String,
+  },
   email: {
     type: String,
     required: true,

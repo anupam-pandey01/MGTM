@@ -18,10 +18,24 @@
 .section {
   margin-top: 4rem;
 }
+.numContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .serviceNum{
     font-family: "Inter", Arial, Helvetica, sans-serif;
     font-size: 13px;
     color: var(--dark-brown);
+}
+.noteBox{
+  display: flex;
+  gap: 14px;
+  border: 1px solid rgba(255, 162, 0, 0.585);
+  padding: 20px;
+  border-radius: 18px;
+  margin-top: 50px;
+  background: rgba(255, 162, 0, 0.319);
 }
 /* ── Program card grid ── */
 
@@ -39,7 +53,7 @@
 .pointData{
   margin-left: 40px;
   color: var(--text-muted);
-  margin-bottom: 40px;
+  padding-bottom: 40px;
   text-align: justify;
 }
 

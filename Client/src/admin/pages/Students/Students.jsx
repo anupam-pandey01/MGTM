@@ -128,6 +128,9 @@ const Students = () => {
           <option value="Stream Selection (for Class 8 & 9)">
             Stream Selection (for Class 8 & 9)
           </option>
+          <option value="End-to-End Study Abroad">
+            End-to-End Study Abroad
+          </option>
         </select>
 
         <select

@@ -129,7 +129,7 @@ const products = [
     pricing: {
       type: "fixed",
 
-      price: 3500,
+      price: 1900,
     },
 
     buttonText: "Buy Now",
@@ -300,7 +300,7 @@ const products = [
     pricing: {
       type: "fixed",
 
-      price: 3500,
+      price: 1900,
     },
 
     buttonText: "Buy Now",

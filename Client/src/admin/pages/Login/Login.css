@@ -208,11 +208,9 @@ input.invalid:focus{box-shadow:0 0 0 3px rgba(184,64,64,.09)}
 .link-btn{
   border:none;
   background:none;
-
+  margin-left: 10px;
   color:#1f2342;
-
   cursor:pointer;
-
   font-size:14px;
   font-weight:600;
 }
