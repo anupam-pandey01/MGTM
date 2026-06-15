@@ -282,7 +282,7 @@ export default function ImpactPage() {
 
           <section className={`${styles.section} container`}>
             <div className={styles.numContainer}>
-              <span className={styles.serviceNum}>SERVICE - 2</span>{" "}
+              <span className={styles.serviceNum}>SERVICE - 1</span>{" "}
               <span className={styles.serviceNum}>
                 {display.lastUpdate
                   ? `Last Updated: ${new Date(
@@ -344,7 +344,7 @@ export default function ImpactPage() {
 
           <section className={`${styles.section} container`}>
             <div className={styles.numContainer}>
-              <span className={styles.serviceNum}>SERVICE - 2</span>{" "}
+              <span className={styles.serviceNum}>SERVICE - 3</span>{" "}
               <span className={styles.serviceNum}>
                 {display.lastUpdate
                   ? `Last Updated: ${new Date(
