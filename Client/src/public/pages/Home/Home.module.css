@@ -185,7 +185,10 @@
   border-radius: 18px;
   background: rgba(255, 161, 0, 0.12);
 }
-
+.assessmentBox a{
+  color: rgb(57, 57, 217);
+  text-decoration: underline;
+}
 .assessmentIcon {
   min-width: 24px;
 }

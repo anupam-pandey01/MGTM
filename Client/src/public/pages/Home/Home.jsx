@@ -124,14 +124,14 @@ const Home = () => {
     const getData = async () => {
       try {
         const data = await getHomeStats();
-        
-        console.log(data)
+
+        console.log(data);
         setHomePageStats(data);
       } catch (err) {
         console.log(err);
       }
     };
-    getData()
+    getData();
   }, []);
   return (
     <>
@@ -272,9 +272,11 @@ const Home = () => {
             <div className={styles.homeNoteContainer}>
               <Note
                 icon={<Microscope className={styles.assessmentIcon} />}
-                boldText={"All services include a psychometric assessment."}
+                boldText={"All services include"}
+                linkTxt="psychometric assessment" // ← linkTxt not linkText
                 className={styles.assessmentBox}
-                paraText={"The result shapes every recommendation we make."}
+                paraText={". The result shapes every recommendation we make."}
+                linkHref="https://assessment.mgtmconsultancy.com"
               />
             </div>
           </div>
@@ -295,18 +297,13 @@ const Home = () => {
               {stats.map((item) => (
                 <div className={styles.statsCard} key={item.label}>
                   <h3>
-                    {
-                      item.label == "Stream & Subject Selection (Classes 8–10)" &&
-                      homePageStats?.streamSelection
-                    }
-                    {
-                      item.label == "Career Coaching for Classes 10, 11 & 12" &&
-                      homePageStats?.careerCoaching
-                    }
-                    {
-                      item.label == "End-to-End Study Abroad" &&
-                      homePageStats?.studyAbroad
-                    }
+                    {item.label ==
+                      "Stream & Subject Selection (Classes 8–10)" &&
+                      homePageStats?.streamSelection}
+                    {item.label == "Career Coaching for Classes 10, 11 & 12" &&
+                      homePageStats?.careerCoaching}
+                    {item.label == "End-to-End Study Abroad" &&
+                      homePageStats?.studyAbroad}
                   </h3>
 
                   <h4>{item.label}</h4>
